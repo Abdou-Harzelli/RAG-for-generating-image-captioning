@@ -4,7 +4,10 @@ data/coco_rag_data/train2017_subset/
 
 data/coco_rag_data/captions_metadata_*.json
 
-data/*.zip
+data/
+*.zip
+*.npy
+*.index
 
 __pycache__/
 *.py[cod]
