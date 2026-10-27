@@ -63,3 +63,21 @@ python scripts/download_coco_rag_subset.py \
 - Everyone uses the same script and image selection file.
 - Keep dataset files locally; do not upload images or ZIP files to GitHub.
 
+
+## Project Proposed Structure : 
+
+RAG-for-generating-image-captioning/
+├── data/                 # Local data storage (ignored by git)
+├── scripts/              # Downloader scripts, audit scripts
+├── src/                  # Core pipeline code (preprocessing, embeddings, etc.)
+├── outputs/              # Generated .npy arrays FAISS indices (ignored by git)
+├── requirements.txt      # Python dependencies
+├── .gitignore            # Keeping large files out of git
+└── README.md             # Project documentation
+
+
+## Requirements installation :
+
+```bash
+pip install -r requirements.txt
+```
