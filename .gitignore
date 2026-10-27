@@ -1,0 +1,13 @@
+data/val2017/
+data/annotations_trainval2017/
+data/coco_rag_data/train2017_subset/
+
+data/coco_rag_data/captions_metadata_*.json
+
+data/*.zip
+
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
