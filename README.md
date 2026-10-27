@@ -65,7 +65,7 @@ python scripts/download_coco_rag_subset.py \
 
 
 ## Project Proposed Structure : 
-
+```text
 RAG-for-generating-image-captioning/
 ├── data/                 # Local data storage (ignored by git)
 ├── scripts/              # Downloader scripts, audit scripts
@@ -74,7 +74,7 @@ RAG-for-generating-image-captioning/
 ├── requirements.txt      # Python dependencies
 ├── .gitignore            # Keeping large files out of git
 └── README.md             # Project documentation
-
+```
 
 ## Requirements installation :
 - Simple :
