@@ -77,7 +77,15 @@ RAG-for-generating-image-captioning/
 
 
 ## Requirements installation :
-
+- Simple :
 ```bash
 pip install -r requirements.txt
 ```
+- if u want to work with an environment : 
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
