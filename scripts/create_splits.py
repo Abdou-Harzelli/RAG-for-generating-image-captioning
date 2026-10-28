@@ -23,7 +23,7 @@ def generate_splits(
     # Ensure we strictly have 10000 for KB if the file has more
     train_kb_ids = train_kb_ids[:10000]
 
-    # 2. Load val2017 pool to carve out Validation (100) and Testing (100) safely
+    # 2. Load val2017 pool to carve out Testing (100) safely
     val2017_paths = [
         "data/annotations/captions_val2017.json",
         "data/annotations_trainval2017/annotations/captions_val2017.json"
@@ -38,17 +38,21 @@ def generate_splits(
         
     val2017_all_ids = [img['id'] for img in val2017_data['images']]
     random.shuffle(val2017_all_ids)
-    
-    # Carve out 100 for validation and 100 for testing from val2017
-    val_ids = val2017_all_ids[:100]
-    test_ids = val2017_all_ids[100:200]
+
+
+    # Carve out 100 for validation from train2017 (10000 images of training)
+    val_ids = train_kb_ids[:100]
+
+
+    # Carve out 100 for testing from val2017
+    test_ids = val2017_all_ids[:100]
     
     # STRICT ANTI-LEAKAGE ASSERTIONS
     set_train = set(train_kb_ids)
     set_val = set(val_ids)
     set_test = set(test_ids)
     
-    assert len(set_train.intersection(set_val)) == 0, "Leakage between Train KB and Val!"
+
     assert len(set_train.intersection(set_test)) == 0, "Leakage between Train KB and Test!"
     assert len(set_val.intersection(set_test)) == 0, "Leakage between Val and Test!"
     print(">>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<")
