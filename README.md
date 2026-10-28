@@ -89,3 +89,10 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+## Dataset Splits
+When running `python scripts/create_splits.py`, the script outputs the following local JSON files inside `data/coco_rag_data/`:
+- `train_kb_ids.json`: Contains 8,000 image IDs for the knowledge base.
+- `val_ids.json`: Contains 1,000 image IDs for validation.
+- `test_ids.json`: Contains 1,000 image IDs for testing.
+
+*Note: Ensure your `data/coco_rag_data/` directory exists before running the script.*
