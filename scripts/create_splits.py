@@ -20,7 +20,6 @@ def generate_splits(
         
     # Get all image IDs (or filenames) from the downloaded subset
     if isinstance(data, list):
-        # If it's a list of image dicts/ids
         image_ids = [item['id'] if isinstance(item, dict) else item for item in data]
     elif isinstance(data, dict) and 'images' in data:
         image_ids = [img['id'] for img in data['images']]
@@ -40,6 +39,26 @@ def generate_splits(
     val_ids = image_ids[train_end:val_end]
     test_ids = image_ids[val_end:]
     
+    # STRICT ANTI-LEAKAGE ASSERTION CHECKS
+    set_train = set(train_kb_ids)
+    set_val = set(val_ids)
+    set_test = set(test_ids)
+    
+    # 1. Check for overlaps between Train KB and Validation
+    train_val_overlap = set_train.intersection(set_val)
+    assert len(train_val_overlap) == 0, f"LEAKAGE DETECTED: {len(train_val_overlap)} IDs overlap between Train KB and Val!"
+    
+    # 2. Check for overlaps between Train KB and Test 
+    train_test_overlap = set_train.intersection(set_test)
+    assert len(train_test_overlap) == 0, f"LEAKAGE DETECTED: {len(train_test_overlap)} IDs overlap between Train KB and Test!"
+    
+    # 3. Check for overlaps between Val and Test
+    val_test_overlap = set_val.intersection(set_test)
+    assert len(val_test_overlap) == 0, f"LEAKAGE DETECTED: {len(val_test_overlap)} IDs overlap between Val and Test!"
+    
+    print(">>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<")
+
+
     os.makedirs(output_dir, exist_ok=True)
     
     # Save the 3 required split JSON files
