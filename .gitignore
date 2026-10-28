@@ -1,13 +1,15 @@
 data/val2017/
 data/annotations_trainval2017/
 data/coco_rag_data/train2017_subset/
-
 data/coco_rag_data/captions_metadata_*.json
 
-data/
+# Remove the broad "data/" line and instead ignore large files/folders explicitly:
 *.zip
 *.npy
 *.index
+
+# But explicitly allow tracking JSON reports/manifests if needed:
+!data/**/*.json
 
 __pycache__/
 *.py[cod]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 49,
+    "file_name": "000000000049.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000049.jpg",
+    "captions": [
+      "A couple of men riding horses on top of a green field.",
+      "two horses and their riders on some grass",
+      "Two men are on horses that are reared back.",
+      "A pair of horses performing tricks in a field. ",
+      "Two costumed horse riders make their horses stand on their hind legs."
+    ]
+  },
+  {
+    "id": 154,
+    "file_name": "000000000154.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000154.jpg",
+    "captions": [
+      "three zeebras standing in a grassy field walking",
+      "Three zebras are standing in an open field.",
+      "Three zebra are walking through the grass of a field.",
+      "Three zebras standing on a grassy dirt field.",
+      "Three zebras grazing in green grass field area."
+    ]
+  },
+  {
+    "id": 194,
+    "file_name": "000000000194.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000194.jpg",
+    "captions": [
+      "a small pizza that is on a white plate",
+      "Small pizza sitting on a white plate with different toppings on it. ",
+      "The pizza is loaded with lots of toppings.",
+      "A small personal sized pizza is shown on display.",
+      "An exotic pizza sits on a plate, with cheese and bits of meat on top."
+    ]
+  },
+  {
+    "id": 208,
+    "file_name": "000000000208.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000208.jpg",
+    "captions": [
+      "A toy dinosaur standing on a sink next to a running faucet.",
+      "a faucet running next to a dinosuar holding a toothbrush",
+      "A toy lizard with a toothbrush in it's mouth standing next to a running water faucet in a bathroom.",
+      "A fake toy dinousure has a green tooth brush in its mouth",
+      "a sink with running water a mirror and a Godzilla toothbrush holder"
+    ]
+  },
+  {
+    "id": 309,
+    "file_name": "000000000309.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000309.jpg",
+    "captions": [
+      "A stuffed bear that is laying down in the grass.",
+      "A teddy bear is laying on the green grass next to a dog. ",
+      "A dog stands in the grass next to a stuffed bear.",
+      "A small brown stuffed bear laying in the grass.",
+      "A teddy bear lays on the lawn and a dog stands behind it."
+    ]
+  },
+  {
+    "id": 312,
+    "file_name": "000000000312.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000312.jpg",
+    "captions": [
+      "A large group of elephants crossing a dirt path.",
+      "A baby elephant walks through the forest with five adult elephants.",
+      "A herd of elephants one running with a baby.",
+      "A herd of elephants, including a tiny baby elephant, cross a dirt road.",
+      "Four large elephants are watching over their baby in the wilderness."
+    ]
+  },
+  {
+    "id": 338,
+    "file_name": "000000000338.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000338.jpg",
+    "captions": [
+      "Two people standing in a kitchen looking around. ",
+      "A couple of men are standing in a kitchen",
+      "Two people looking at a large kitchen ",
+      "An elderly man and woman looking around in a kitchen.",
+      "Two people standing close to each other while standing in a kitchen."
+    ]
+  },
+  {
+    "id": 459,
+    "file_name": "000000000459.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000459.jpg",
+    "captions": [
+      "A man holding a camera up over his left shoulder.",
+      "A man with a blazer holding a camera",
+      "A man in a suit snaps a mirror selfie.",
+      "a man in a suit taking a picture of himself with a large camera",
+      "A man wearing a suit is taking a self portrait with a camera."
+    ]
+  },
+  {
+    "id": 486,
+    "file_name": "000000000486.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000486.jpg",
+    "captions": [
+      "An industrial kitchen with a strainer on the counter.",
+      "A dirty commercial kitchen with a bowl on the counter",
+      "A kitchen with a long wooden counter and a metal pan on it.",
+      "A restaurant kitchen provides everything needed to prepare food.",
+      "An empty commercial kitchen with bowls on the counter and stacks of trays on the shelf above."
+    ]
+  },
+  {
+    "id": 508,
+    "file_name": "000000000508.jpg",
+    "url": "http://images.cocodataset.org/train2017/000000000508.jpg",
+    "captions": [
+      "A scenic view of a snow covered mountain and clouds.",
+      "Snow that is on a hill overlooking mountains.",
+      "Sun peeks through the cloudy on top of a snowy mountain.",
+      "A field covered in snow on top of a hillside.",
+      "A sign stands on a snowy kill under a cloudy sky."
+    ]
+  }
+]

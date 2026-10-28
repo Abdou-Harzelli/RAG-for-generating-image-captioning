@@ -1,0 +1,15 @@
+{
+    "selection_seed": 20261027,
+    "expected_images": 10000,
+    "image_files_found": 10000,
+    "valid_images": 10000,
+    "missing_images_count": 0,
+    "missing_images": [],
+    "corrupted_images_count": 0,
+    "corrupted_images": [],
+    "unexpected_images_count": 0,
+    "unexpected_images": [],
+    "status": "PASS",
+    "selection_file": "data/coco_rag_data/train_subset_10000.json",
+    "images_directory": "data/coco_rag_data/train2017_subset"
+}
