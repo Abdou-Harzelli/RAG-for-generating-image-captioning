@@ -9,23 +9,21 @@ def generate_splits(
 ):
     random.seed(seed)
     
-    # 1. RAG Knowledge Base (Training) -> All 10,000 images
+    # 1. RAG Knowledge Base -> Full 10,000 images
     with open(train_json_path, 'r', encoding='utf-8') as f:
         train_data = json.load(f)
         
-    # PROPERLY PARSE THE JSON (This is what I broke earlier!)
     if isinstance(train_data, list):
         train_kb_ids = [item['id'] if isinstance(item, dict) else item for item in train_data]
     elif isinstance(train_data, dict) and 'images' in train_data:
         train_kb_ids = [img['id'] if isinstance(img, dict) else img for img in train_data['images']]
     elif isinstance(train_data, dict):
-        # In case it's a dict mapping IDs directly
         train_kb_ids = list(train_data.keys())
-        
-    # 2. Validation -> 100 images from the 10,000 training set
-    val_ids = random.sample(train_kb_ids, 100)
-    
-    # 3. Testing -> 100 images from the untouched COCO val2017 dataset
+
+    # Ensure we strictly have 10000 for KB if the file has more
+    train_kb_ids = train_kb_ids[:10000]
+
+    # 2. Load val2017 pool to carve out Validation (100) and Testing (100) safely
     val2017_paths = [
         "data/annotations/captions_val2017.json",
         "data/annotations_trainval2017/annotations/captions_val2017.json"
@@ -39,8 +37,22 @@ def generate_splits(
         val2017_data = json.load(f)
         
     val2017_all_ids = [img['id'] for img in val2017_data['images']]
-    test_ids = random.sample(val2017_all_ids, 100)
+    random.shuffle(val2017_all_ids)
     
+    # Carve out 100 for validation and 100 for testing from val2017
+    val_ids = val2017_all_ids[:100]
+    test_ids = val2017_all_ids[100:200]
+    
+    # STRICT ANTI-LEAKAGE ASSERTIONS
+    set_train = set(train_kb_ids)
+    set_val = set(val_ids)
+    set_test = set(test_ids)
+    
+    assert len(set_train.intersection(set_val)) == 0, "Leakage between Train KB and Val!"
+    assert len(set_train.intersection(set_test)) == 0, "Leakage between Train KB and Test!"
+    assert len(set_val.intersection(set_test)) == 0, "Leakage between Val and Test!"
+    print(">>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<")
+
     # Save the files
     os.makedirs(output_dir, exist_ok=True)
     with open(os.path.join(output_dir, "train_kb_ids.json"), "w", encoding="utf-8") as f:
@@ -50,7 +62,7 @@ def generate_splits(
     with open(os.path.join(output_dir, "test_ids.json"), "w", encoding="utf-8") as f:
         json.dump(test_ids, f, indent=2)
         
-    print(f"Splits corrected successfully!")
+    print(f"Splits generated successfully!")
     print(f"Train KB: {len(train_kb_ids)} | Val: {len(val_ids)} | Test: {len(test_ids)}")
 
 if __name__ == "__main__":
