@@ -96,3 +96,18 @@ When running `python scripts/create_splits.py`, the script outputs the following
 - `test_ids.json`: Contains 1,000 image IDs for testing.
 
 *Note: Ensure your `data/coco_rag_data/` directory exists before running the script.*
+
+## For Data split and anti leackage only 
+*Note: either pull with :*
+```bash
+ git pull --force origin main 
+```    
+ 
+*Or  Remove the 3 files :*
+- test_ids.json
+- train_kb_ids.json
+- val_ids.json 
+and then run 
+```bash 
+python3 scripts/create_splits.py 
+```
