@@ -1,9 +1,7 @@
-
 import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
-
 '''
  le but f had le fichier c que ndiro lookup li fiha les infos tae l'image + objects li fiha ldakhl
  based on captions li kayn f json file (tae images)
@@ -21,17 +19,8 @@ def build_unified_lookup(
     captions_file: Path,
     instances_file: Path,
 ) -> dict:
-    """
-    Build a unified lookup dictionary for the selected COCO images.
+    """Build a unified lookup for selected COCO training images."""
 
-    Each image is indexed by its COCO image ID and contains:
-    - filename
-    - image URL
-    - ground-truth captions
-    - annotated object labels
-    """
-
-    # Load the team's selected image manifest.
     selection_data = load_json(selection_file)
 
     if not isinstance(selection_data.get("images"), list):
@@ -39,19 +28,25 @@ def build_unified_lookup(
             "The selection JSON must contain an 'images' list."
         )
 
-    selected_images = {
-        image["id"]: {
+    selected_images = {}
+
+    for image in selection_data["images"]:
+        image_id = image["id"]
+
+        if image_id in selected_images:
+            raise ValueError(
+                f"Duplicate image ID in training selection: {image_id}"
+            )
+
+        selected_images[image_id] = {
             "file_name": image["file_name"],
             "url": image.get("url"),
         }
-        for image in selection_data["images"]
-    }
 
     selected_ids = set(selected_images)
 
-    # Load official caption annotations.
+    # Load official captions.
     captions_data = load_json(captions_file)
-
     captions_by_image = defaultdict(list)
 
     for annotation in captions_data.get("annotations", []):
@@ -62,7 +57,7 @@ def build_unified_lookup(
                 annotation["caption"]
             )
 
-    # Load official object-instance annotations.
+    # Load official object annotations.
     instances_data = load_json(instances_file)
 
     category_names = {
@@ -70,7 +65,7 @@ def build_unified_lookup(
         for category in instances_data.get("categories", [])
     }
 
-    objects_by_image = defaultdict(list)
+    objects_by_image = defaultdict(set)
 
     for annotation in instances_data.get("annotations", []):
         image_id = annotation["image_id"]
@@ -78,13 +73,14 @@ def build_unified_lookup(
         if image_id not in selected_ids:
             continue
 
-        category_id = annotation["category_id"]
-        category_name = category_names.get(category_id)
+        category_name = category_names.get(
+            annotation["category_id"]
+        )
 
-        if category_name is not None:
-            objects_by_image[image_id].append(category_name)
+        if category_name:
+            objects_by_image[image_id].add(category_name)
 
-    # Combine the information into one lookup dictionary.
+    # Build the unified lookup.
     unified_lookup = {}
 
     for image_id, metadata in selected_images.items():
@@ -92,9 +88,7 @@ def build_unified_lookup(
             "file_name": metadata["file_name"],
             "url": metadata["url"],
             "captions": captions_by_image.get(image_id, []),
-            "objects": sorted(
-                set(objects_by_image.get(image_id, []))
-            ),
+            "objects": sorted(objects_by_image.get(image_id, set())),
         }
 
     return unified_lookup
@@ -102,16 +96,15 @@ def build_unified_lookup(
 
 def main():
     parser = argparse.ArgumentParser(
-        description=(
-            "Build a unified caption and object lookup "
-            "for the selected COCO images."
-        )
+        description="Build a unified lookup for COCO training images."
     )
 
     parser.add_argument(
         "--selection-file",
         type=Path,
-        default=Path("data/coco_rag_data/train_subset_10000.json"),
+        default=Path(
+            "data/coco_rag_data/train_subset_10000.json"
+        ),
     )
 
     parser.add_argument(
@@ -142,11 +135,13 @@ def main():
 
     args = parser.parse_args()
 
-    for file_path in (
+    required_files = [
         args.selection_file,
         args.captions_file,
         args.instances_file,
-    ):
+    ]
+
+    for file_path in required_files:
         if not file_path.is_file():
             parser.error(f"Required file not found: {file_path}")
 
@@ -156,18 +151,22 @@ def main():
             captions_file=args.captions_file,
             instances_file=args.instances_file,
         )
-    except (KeyError, ValueError, json.JSONDecodeError, OSError) as error:
-        parser.error(f"Failed to build lookup: {error}")
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-
-    with args.output.open("w", encoding="utf-8") as file:
-        json.dump(
-            lookup,
-            file,
-            indent=2,
-            ensure_ascii=False,
+        args.output.parent.mkdir(
+            parents=True,
+            exist_ok=True,
         )
+
+        with args.output.open("w", encoding="utf-8") as file:
+            json.dump(
+                lookup,
+                file,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+    except (KeyError, ValueError, json.JSONDecodeError, OSError) as error:
+        parser.error(f"Failed to build training lookup: {error}")
 
     total_images = len(lookup)
 
@@ -186,12 +185,13 @@ def main():
         for item in lookup.values()
     )
 
-    print("\n FINAL Unified Lookup Summary:")
-    print(f"Selected images:          {total_images}")
-    print(f"Images with captions:     {images_with_captions}")
-    print(f"Images with object labels:{images_with_objects:>8}")
-    print(f"Total captions:           {total_captions}")
-    print(f"Output file:              {args.output}")
+    print("\n========== UNIFIED LOOKUP SUMMARY ==========")
+    print(f"Selected images:           {total_images}")
+    print(f"Images with captions:      {images_with_captions}")
+    print(f"Images with object labels: {images_with_objects}")
+    print(f"Total captions:            {total_captions}")
+    print(f"Output file:               {args.output}")
+    print("=============================================")
 
 
 if __name__ == "__main__":
