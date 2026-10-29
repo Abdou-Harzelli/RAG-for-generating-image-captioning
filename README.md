@@ -111,3 +111,41 @@ and then run
 ```bash 
 python3 scripts/create_splits.py 
 ```
+
+## step 3 , check of captions in the 10k imgs et la generation de json special de 10k img
+*nom de fichier est: build_unified_lookup.py*
+the result must look like this :
+========== UNIFIED LOOKUP SUMMARY ==========
+Selected images:          10000
+Images with captions:     10000
+Images with object labels:    9914
+Total captions:           50029
+Output file:              data\coco_rag_data\unified_lookup.json
+=============================================
+
+========== TEST IMAGES DIAGNOSTIC ==========
+Test IDs in file:           100
+Unique test images:         100
+Duplicate test IDs:         0
+Train/test overlap:         0
+
+
+*la commande pour executer le fichier est :*
+python .\scripts\build_unified_lookup.py
+
+
+## step 3 , check the 100 test img 
+
+ouptupt exemple: 
+*+fichier json nom:test_images_metadata.json*
+--- Test Summary ---
+Selected images:            100
+Images with captions:       100
+Images with object labels:  99
+Total captions:             500
+Images without captions:    0
+Images without object labels: 1
+Test IDs file:              data\coco_rag_data\test_ids.json
+=============================================
+*la commande d'execution est:*
+python .\scripts\build_test_metadata.py
