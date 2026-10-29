@@ -1,0 +1,1610 @@
+{
+  "count": 100,
+  "source": "COCO 2017 annotations",
+  "diagnostics": {
+    "unique_test_images": 100,
+    "duplicate_test_ids": 0,
+    "train_test_overlap_count": 0,
+    "train_test_overlap_ids": [],
+    "images_with_captions": 100,
+    "images_without_captions": 0,
+    "images_with_objects": 99,
+    "images_without_objects": 1,
+    "images_without_filename": 0,
+    "total_captions": 500
+  },
+  "images": [
+    {
+      "id": 21465,
+      "file_name": "000000021465.jpg",
+      "captions": [
+        "A dirty table has incense burners on it.",
+        "There are various items on shelves tagged for sale. ",
+        "a cabinet with some paint on top of it ",
+        "A blue shelf holds different sized silver vases.",
+        "A blue shelving unit has a vase and metal cups on it. "
+      ],
+      "objects": [
+        "chair",
+        "vase"
+      ]
+    },
+    {
+      "id": 563281,
+      "file_name": "000000563281.jpg",
+      "captions": [
+        "An old picture of a baby holding a record in his hand. ",
+        "A little boy in pajamas playing with his toys.",
+        "A little boy standing in a room next to a chicken sculpture.",
+        "A child standing on the floor with a toothbrush in hand. ",
+        "A small child holding a toothbrush stands in front of colorful chicken decorations."
+      ],
+      "objects": [
+        "person",
+        "toothbrush"
+      ]
+    },
+    {
+      "id": 447187,
+      "file_name": "000000447187.jpg",
+      "captions": [
+        "A man is swinging a bat a ball being pitched at him.",
+        "A group of mn on a field playing a game of baseball",
+        "An umpire is in jump action while the pitcher launches the ball.",
+        "A group of boys playing baseball on a field.",
+        "A pitcher throwing a baseball toward a batter."
+      ],
+      "objects": [
+        "baseball bat",
+        "baseball glove",
+        "person",
+        "sports ball"
+      ]
+    },
+    {
+      "id": 500464,
+      "file_name": "000000500464.jpg",
+      "captions": [
+        "Bathroom with a white tiled floor and sink.",
+        "A bathroom with the sink and medicine cabinet visible.",
+        "A sink in a bathroom is shown with other items.",
+        "A sink, mirror and toiletries in a bathroom. ",
+        "The bathroom with the white tile has been cleaned. "
+      ],
+      "objects": [
+        "bottle",
+        "hair drier",
+        "sink",
+        "toothbrush"
+      ]
+    },
+    {
+      "id": 199771,
+      "file_name": "000000199771.jpg",
+      "captions": [
+        "A group of people in chef outfits at a kitchen counter.",
+        "A group of people in chefs uniforms standing around a counter.",
+        "A woman teaches a class of aspiring chefs. ",
+        "People in a kitchen with cooking attire on",
+        "A group of people dressed in black preparing food."
+      ],
+      "objects": [
+        "book",
+        "bottle",
+        "bowl",
+        "clock",
+        "cup",
+        "knife",
+        "person",
+        "sandwich"
+      ]
+    },
+    {
+      "id": 65736,
+      "file_name": "000000065736.jpg",
+      "captions": [
+        "A woman in black shirt and skirt playing a game of tennis.",
+        "A tennis player is hitting a ball on the court.",
+        "A woman wearing an Army t-shirt hits a tennis ball",
+        "a tennis player dressed in all black returning the ball",
+        "A woman tennis player in a black army shirt and tennis skirt, swinging a tennis racket."
+      ],
+      "objects": [
+        "person",
+        "sports ball",
+        "tennis racket"
+      ]
+    },
+    {
+      "id": 429281,
+      "file_name": "000000429281.jpg",
+      "captions": [
+        "a table full of bananas being sold outside",
+        "A big bin filled with some ripe yellow bananas.",
+        "Bananas and apples are being sold at the market.",
+        "There are many bananas sitting on the shelf.",
+        "Display for bananas with a euro money sign"
+      ],
+      "objects": [
+        "apple",
+        "banana",
+        "orange"
+      ]
+    },
+    {
+      "id": 202228,
+      "file_name": "000000202228.jpg",
+      "captions": [
+        "The reflection of a man taking  a picture in a mirror",
+        "A man takes his picture using the bathroom mirror.",
+        "A man wearing a hat while standing in front of a bathroom mirror.",
+        "A man taking a picture of himself in a mirror.",
+        "A young man takes a picture of himself in the mirror."
+      ],
+      "objects": [
+        "person"
+      ]
+    },
+    {
+      "id": 110638,
+      "file_name": "000000110638.jpg",
+      "captions": [
+        "A couple of large elephants standing next to a baby elephant.",
+        "a small elephant walks underneath a big elephant ",
+        "A mother elephant with her baby elephant underneath her.",
+        "A baby elephant that is standing underneath an adult elephant. ",
+        "A baby elephant is walking under a larger elephant."
+      ],
+      "objects": [
+        "elephant"
+      ]
+    },
+    {
+      "id": 106235,
+      "file_name": "000000106235.jpg",
+      "captions": [
+        "A living room featuring a comfortable seating arrangement of chairs and tables.",
+        "THERE IS AN IMAGE OF A LIVING WITH A RUG AND AN END TABLE ",
+        "There is a cream colored couch behind the oval coffee table.",
+        "A very cozy looking living room with an oval table.",
+        "A den with couches, a chair, tables and lamps."
+      ],
+      "objects": [
+        "chair",
+        "couch",
+        "dining table",
+        "potted plant",
+        "remote"
+      ]
+    },
+    {
+      "id": 564280,
+      "file_name": "000000564280.jpg",
+      "captions": [
+        "A large dog sitting on top of a picture frame.",
+        "A dog on a red couch with the tv and Wii remotes.",
+        "A dog sitting on the couch with it's paw over a tray that holds remotes for the tv and Wii.",
+        "A dog is sitting on a couch by a remote.",
+        "A dog laying on the couch next to remotes."
+      ],
+      "objects": [
+        "couch",
+        "dog",
+        "remote"
+      ]
+    },
+    {
+      "id": 309467,
+      "file_name": "000000309467.jpg",
+      "captions": [
+        "Two people cross country skiing on a snow covered hill.",
+        "Two people carrying backpacks are cross country skiing.",
+        "Two skiers in dark clothing are standing on the snowy slope. ",
+        "Skiers stand at hillcrest against a clear blue sky. ",
+        "two people walking up the hill so they can ski down it"
+      ],
+      "objects": [
+        "backpack",
+        "person",
+        "skis"
+      ]
+    },
+    {
+      "id": 482477,
+      "file_name": "000000482477.jpg",
+      "captions": [
+        "there is a bird that is sitting at the top of a branch",
+        "A small bird sitting on top of a branch.",
+        "A bird is perched on top of a large stick.",
+        "A bird perched on top of a tree branch with large wings.l",
+        "blue and white bird standing on a branch"
+      ],
+      "objects": [
+        "bird"
+      ]
+    },
+    {
+      "id": 401250,
+      "file_name": "000000401250.jpg",
+      "captions": [
+        "A person that is doing a trick in the air.",
+        "A skier dressed in white performing an aerial maneuver.",
+        "A skier performing a backflip with the sky as background",
+        "The skier is upside down in the air.",
+        "The snow skier is performing a flip in the air."
+      ],
+      "objects": [
+        "person",
+        "skis"
+      ]
+    },
+    {
+      "id": 429530,
+      "file_name": "000000429530.jpg",
+      "captions": [
+        "Four vases with purple flower in it. There are two different shapes and sizes.",
+        "Two different shaped white vases on a rack.",
+        "There are four vases that have butterfly sculptures on them.",
+        "A group of four matching vases are adorned with glass butterflies.",
+        "Four different sized vases decorated with various sized butterflys."
+      ],
+      "objects": [
+        "vase"
+      ]
+    },
+    {
+      "id": 579070,
+      "file_name": "000000579070.jpg",
+      "captions": [
+        "A group of people sitting around a table. ",
+        "A group of people gathered around the table.",
+        "A group of people sitting at a table with many small sip cups.",
+        "Five people sitting together at a table with Dixie cups.",
+        "A group of friends sitting around a wooden table together."
+      ],
+      "objects": [
+        "bottle",
+        "bowl",
+        "chair",
+        "cup",
+        "dining table",
+        "fork",
+        "person",
+        "tie"
+      ]
+    },
+    {
+      "id": 104666,
+      "file_name": "000000104666.jpg",
+      "captions": [
+        "A living room with hard wood floors and a book shelf.",
+        "A reading room,in the corner of which paint board with a painting is kept.",
+        "A large painting and book shelf in a living room with wood floor",
+        "A living room has guitars, shelves, and a painting.",
+        "A room with a painting, books, and guitars. "
+      ],
+      "objects": [
+        "book",
+        "couch",
+        "tv"
+      ]
+    },
+    {
+      "id": 326174,
+      "file_name": "000000326174.jpg",
+      "captions": [
+        "A group of people are taking surfing lessons.",
+        "A group of men, women and children walking toward the water with surfboards.",
+        "A mixed age group is going toward the ocean with surfboards.",
+        "A group of surfers are carrying their surf boards into the ocean.",
+        "Several people are getting ready to enter the water for surfing."
+      ],
+      "objects": [
+        "person",
+        "surfboard"
+      ]
+    },
+    {
+      "id": 30828,
+      "file_name": "000000030828.jpg",
+      "captions": [
+        "A person with an orange blanket covering them, sleeping on a wooden park bench.",
+        "Person sleeping on bench in sleeping bag near parking meters.",
+        "A person is sleeping on a bench in a sleeping bag.",
+        "The person is sleeping on a park bench.",
+        "A person covered with an orange sleeping bag rests his head on a blue back pack as he sleeps on a park bench. "
+      ],
+      "objects": [
+        "backpack",
+        "bench",
+        "car",
+        "parking meter",
+        "person"
+      ]
+    },
+    {
+      "id": 331075,
+      "file_name": "000000331075.jpg",
+      "captions": [
+        "a dog that's been playing in the water",
+        "A wet dog standing at the beach near the ocean.",
+        "A wet dog standing on a beach next to the ocean.",
+        "a white brown and black dog is by some water ",
+        "A dog enjoying playing on the beach in the sun"
+      ],
+      "objects": [
+        "dog"
+      ]
+    },
+    {
+      "id": 388903,
+      "file_name": "000000388903.jpg",
+      "captions": [
+        "A woman talking on the phone in front of a person selling apples.",
+        "There is a woman talking on her cell phone.",
+        "a person walking on a street talking on a cell phone",
+        "An individual enjoying itself on a sunny day\n",
+        "A woman is on a phone in front of a fruit stand."
+      ],
+      "objects": [
+        "apple",
+        "bicycle",
+        "cell phone",
+        "handbag",
+        "person",
+        "suitcase"
+      ]
+    },
+    {
+      "id": 8629,
+      "file_name": "000000008629.jpg",
+      "captions": [
+        "many different slices of pizza with a white sauce.",
+        "Six different pictures of single slices of pizza.",
+        "a close up of a slice of pizza on a plate",
+        "Several pictures containing several different types of pizza.",
+        "Pictures of several different types of quiche prepared differently."
+      ],
+      "objects": [
+        "fork",
+        "pizza"
+      ]
+    },
+    {
+      "id": 338428,
+      "file_name": "000000338428.jpg",
+      "captions": [
+        "An older pickup truck with decorative murals painted on.",
+        "an antique green pickup truck is parked in the grass.",
+        "Truck viewed from the back with vans and trucks visible in the background of the image.",
+        "A truck painted green with designs parked by other vehicles.",
+        "A photo of a green truck parked in grass."
+      ],
+      "objects": [
+        "bus",
+        "truck"
+      ]
+    },
+    {
+      "id": 186624,
+      "file_name": "000000186624.jpg",
+      "captions": [
+        "Someone is standing near a train that is parked. ",
+        "A train parked inside of a train station next to a person.",
+        "A long locomotive train parked in a station next to a person.",
+        "a woman stands next to a parked train ",
+        "a person standing next to a green and black train"
+      ],
+      "objects": [
+        "backpack",
+        "handbag",
+        "person",
+        "train"
+      ]
+    },
+    {
+      "id": 377393,
+      "file_name": "000000377393.jpg",
+      "captions": [
+        "Looking down at a beach area and boardwalk that has a circular walkway and clock tower.",
+        "View of plaza with tower near beach on sunny day.",
+        "A large clock tower sitting in the middle of a paved walkway.",
+        "A plaza with a clock tower near the beach.",
+        "a clock on a small tower near a building "
+      ],
+      "objects": [
+        "clock",
+        "person",
+        "umbrella"
+      ]
+    },
+    {
+      "id": 104669,
+      "file_name": "000000104669.jpg",
+      "captions": [
+        "A white plate served on a multi colored table cloth",
+        "The plate is full of broccoli, potatoes, and meat.",
+        "A plate with a meal of meat, potatoes, carrots, and broccoli. ",
+        "The meal features steak and potatoes on the plate..",
+        "A plate on a table with with different types of food."
+      ],
+      "objects": [
+        "broccoli",
+        "carrot",
+        "dining table",
+        "fork",
+        "knife",
+        "orange"
+      ]
+    },
+    {
+      "id": 215644,
+      "file_name": "000000215644.jpg",
+      "captions": [
+        "A kitchen is shown in midst of repairs.",
+        "A picture of an unfinished back splash in the kitchen with a microwave and other small kitchen appliances.",
+        "A metallic microwave oven sitting on top of a counter.",
+        "A microwave mounted into a wall next to unfinished cabinets without doors.",
+        "A microwave that is inside of the wall in a home."
+      ],
+      "objects": [
+        "bowl",
+        "microwave",
+        "spoon"
+      ]
+    },
+    {
+      "id": 304291,
+      "file_name": "000000304291.jpg",
+      "captions": [
+        "The brown horse is walking on the dirt in the fence. ",
+        "A horse that is walking down a trail by itself. ",
+        "a horse walks along a dirt path alone ",
+        "A horse walking in a field with trees in the background.",
+        "a horse that is walking around a field"
+      ],
+      "objects": [
+        "horse"
+      ]
+    },
+    {
+      "id": 20059,
+      "file_name": "000000020059.jpg",
+      "captions": [
+        "Two zebras graze on grass inside of an enclosure. ",
+        "Two zebras at the zoo eating some grass.",
+        "Two zebras grazing on the green grass in an enclosure.",
+        "A pair of zebras grazing on grass in a zoo.",
+        "A couple of zebras are grazing in a field"
+      ],
+      "objects": [
+        "zebra"
+      ]
+    },
+    {
+      "id": 36844,
+      "file_name": "000000036844.jpg",
+      "captions": [
+        "A spacious living room with three windows and a wooden floor.",
+        "A living room filled with furniture and wood flooring.",
+        "A living room with wooden floors and white walls.",
+        "a black couch a green chair a red chair a mirror and a ceiling fan",
+        "A living room has some chairs and a ceiling fan."
+      ],
+      "objects": [
+        "bicycle",
+        "chair",
+        "couch",
+        "cup",
+        "potted plant",
+        "refrigerator",
+        "remote",
+        "tv"
+      ]
+    },
+    {
+      "id": 302452,
+      "file_name": "000000302452.jpg",
+      "captions": [
+        "A giraffe drinking milk from a bottle behind a cage.",
+        "A woman holding up a large bottle so a baby giraffe can drink from it.",
+        "A woman feeding a giraffe with a bottle at the zoo",
+        "A baby giraffe sucking down a bottle of milk .",
+        "A giraffe drinking from a bottle in front of a group of people."
+      ],
+      "objects": [
+        "bottle",
+        "cell phone",
+        "giraffe",
+        "person"
+      ]
+    },
+    {
+      "id": 245026,
+      "file_name": "000000245026.jpg",
+      "captions": [
+        "an image of a woman holding a cake ",
+        "A woman wearing glasses poses behind her birthday cake. ",
+        "A woman in glasses sitting behind a sheet cake.",
+        "A woman holding up a cake for her birthday",
+        "A woman in glasses holding up a cake with frosting."
+      ],
+      "objects": [
+        "book",
+        "cake",
+        "cup",
+        "person"
+      ]
+    },
+    {
+      "id": 399764,
+      "file_name": "000000399764.jpg",
+      "captions": [
+        "A man is leading a cow with a ribbon on its neck.",
+        "man with grey hair leading a cow with red ribbon",
+        "An old man walking a big brown cow around.",
+        "A man that is standing with a cow.",
+        "A man is walking with a cow who's sporting a red ribbon. "
+      ],
+      "objects": [
+        "cow",
+        "person"
+      ]
+    },
+    {
+      "id": 172977,
+      "file_name": "000000172977.jpg",
+      "captions": [
+        "A zebra chews a flower in a fenced in field.",
+        "The medium sized zebra is looking into the camera.",
+        "A zebra standing in a gated area. ",
+        "A zebra standing on top of a dirt and grass field.",
+        "A Zebra standing on a dirt ground inside a fenced area."
+      ],
+      "objects": [
+        "zebra"
+      ]
+    },
+    {
+      "id": 40036,
+      "file_name": "000000040036.jpg",
+      "captions": [
+        "A person jumping a horse over a box.",
+        "Rider on a horse jumping over a fence",
+        "A person riding the horse jumping over a wooden obstacle.",
+        "A person jumping a horse over a wooden obstacle.",
+        "A young person on a horse makes a jump."
+      ],
+      "objects": [
+        "horse",
+        "person",
+        "potted plant"
+      ]
+    },
+    {
+      "id": 523100,
+      "file_name": "000000523100.jpg",
+      "captions": [
+        "A person fills jars with orange slices from a large bowl.",
+        "A bowl of peeled oranges sit next to several jars of peeled oranges.",
+        "A metal bowl filled with orange slices on a table.",
+        "Person canning oranges showing a large bowl of fruit wedges.",
+        "Oranges that have been peeled are placed into a larger bowl."
+      ],
+      "objects": [
+        "bottle",
+        "bowl",
+        "orange",
+        "oven",
+        "person"
+      ]
+    },
+    {
+      "id": 86220,
+      "file_name": "000000086220.jpg",
+      "captions": [
+        "A car and a public transit vehicle on a road.",
+        "a car in front of a train on train tracks",
+        "A tram and a car make their way through town.",
+        "A silver car in the street next to a metal railing.",
+        "A white car and a white bus parked parallel from one another. "
+      ],
+      "objects": [
+        "bus",
+        "car",
+        "person",
+        "train"
+      ]
+    },
+    {
+      "id": 370042,
+      "file_name": "000000370042.jpg",
+      "captions": [
+        "Large assortment of small and large vases displayed outdoors.",
+        "A pile of clay and gold vases sitting in a yard.",
+        "there are many vases on the ground in the street",
+        "There are many vases on display outside the building.",
+        "A bunch of pottery sitting on a sidewalk "
+      ],
+      "objects": [
+        "vase"
+      ]
+    },
+    {
+      "id": 348881,
+      "file_name": "000000348881.jpg",
+      "captions": [
+        "A large jetliner sitting on top of an airport runway.",
+        "Airline employees by an aircraft parked at the gate",
+        "The plane is parked at the gate at the airport terminal.",
+        "View from gate of jet connected to jet way for passengers to board or deplane",
+        "A large white airplane and a person on a lot."
+      ],
+      "objects": [
+        "airplane",
+        "person",
+        "suitcase"
+      ]
+    },
+    {
+      "id": 213547,
+      "file_name": "000000213547.jpg",
+      "captions": [
+        "A woman holding a small cake with lit candles.",
+        "Woman holding a small birthday cake rides a coin-operated children's ride in a convenience store.",
+        "A woman is sitting on a kid's horse ride at a store holding a cake with candles.",
+        "A girl holding a plate with a cake and candles.",
+        "A woman holds a cake with candles while riding a mechanical horse in a store."
+      ],
+      "objects": [
+        "bottle",
+        "cake",
+        "clock",
+        "horse",
+        "person",
+        "refrigerator"
+      ]
+    },
+    {
+      "id": 343803,
+      "file_name": "000000343803.jpg",
+      "captions": [
+        "A man has a frisbee in his hand and is standing up. ",
+        "A young man holding a Frisbee in a throwing position.",
+        "A young man playing out side with a disc.",
+        "The young man in jeans is throwing a Frisbee.",
+        "A person on field with a Frisbee in their hand."
+      ],
+      "objects": [
+        "frisbee",
+        "person"
+      ]
+    },
+    {
+      "id": 408774,
+      "file_name": "000000408774.jpg",
+      "captions": [
+        "A group of people on a field playing baseball.",
+        "A player running the bases of a base ball game while an opposing player goes for the ball.",
+        "Athletes during game on ball field on cloudy day.",
+        "a man catching a ball in the outfield during a baseball game.",
+        "A man diving for a baseball as another runs towards home plate."
+      ],
+      "objects": [
+        "baseball glove",
+        "person"
+      ]
+    },
+    {
+      "id": 227985,
+      "file_name": "000000227985.jpg",
+      "captions": [
+        "Two sandwiches cut in half sitting on top of a white plate.",
+        "two sandwiches on a plate with a slice of tomato on the side",
+        "A foam plate with two sandwiches on it.",
+        "The white plate contains a meat sandwich on toast, garnished with lettuce, onions, and tomato.",
+        "A plate with two ham sandwiches garnished with lettuce"
+      ],
+      "objects": [
+        "dining table",
+        "knife",
+        "sandwich"
+      ]
+    },
+    {
+      "id": 324927,
+      "file_name": "000000324927.jpg",
+      "captions": [
+        "A plate of two slices of pizza and a cup of juice.",
+        "Slices of meat pizza with a shot glass of mustard",
+        "a plate with a couple pieces of pizza sitting on it ",
+        "Two slices of pizza sit on a plate with an orange drink.",
+        "A couple of slices of pizza and a glass of drink."
+      ],
+      "objects": [
+        "cup",
+        "pizza"
+      ]
+    },
+    {
+      "id": 148957,
+      "file_name": "000000148957.jpg",
+      "captions": [
+        "A box contains six donuts with varying types of glazes and toppings.",
+        "A box filled with six donuts covered on toppings.",
+        "A box with half a dozen glazed and frosted donuts.",
+        "A close up look into a box filled with pastries.",
+        "The box contains six donuts, but only two are chocolate covered."
+      ],
+      "objects": [
+        "donut"
+      ]
+    },
+    {
+      "id": 283113,
+      "file_name": "000000283113.jpg",
+      "captions": [
+        "A couple of hot dogs on a paper plate.",
+        "A hot dog is smothered with bacon, onions, and mustard.",
+        "The two hot dogs on the plate are ready to be eaten. ",
+        "A hot dog in a bun is topped with mustard.",
+        "A plate of hot dog on a table with a glass"
+      ],
+      "objects": [
+        "cup",
+        "hot dog"
+      ]
+    },
+    {
+      "id": 302760,
+      "file_name": "000000302760.jpg",
+      "captions": [
+        "A bathroom sink with a marble counter top under a large mirror.",
+        "An image of a bathroom with a sink and mirror ",
+        "Soap and a water bottle are on top of a vanity in a teal bathroom.",
+        "A view of a sink with soap next to it.",
+        "A bathroom sink with a bottle of hand soap "
+      ],
+      "objects": [
+        "bottle",
+        "sink"
+      ]
+    },
+    {
+      "id": 261796,
+      "file_name": "000000261796.jpg",
+      "captions": [
+        "A black and white picture of a large house is shown.",
+        "A tree stands net to an old wood house",
+        "an older home with multiple windows, shot from the street. ",
+        "A three-story Victorian-era frame house with a peaked roof.",
+        "a house is sitting on an empty block"
+      ],
+      "objects": []
+    },
+    {
+      "id": 474881,
+      "file_name": "000000474881.jpg",
+      "captions": [
+        "Horned mountain goats enjoying green grass next to the snow",
+        "A white slope covers the background, while the foreground features a grassy slope with several rams grazing and one measly and underdeveloped evergreen in the foreground.  ",
+        "The elk have horns and are eating grass. ",
+        "The mountain goats are eating the grass on the slope.",
+        "The longhorn sheep are grazing on the mountain."
+      ],
+      "objects": [
+        "sheep"
+      ]
+    },
+    {
+      "id": 537506,
+      "file_name": "000000537506.jpg",
+      "captions": [
+        "A person is holding two apples on a plate at sum sort of celebration.",
+        "A man serves a sliced apple to one of his friends",
+        "The person holds a plate with two red apples near pedestrians holding umbrellas. ",
+        "A group of people standing on the side of a road.",
+        "A group of people wait near a wedding procession of cars, one of them holding two apples."
+      ],
+      "objects": [
+        "apple",
+        "car",
+        "handbag",
+        "person",
+        "umbrella"
+      ]
+    },
+    {
+      "id": 52017,
+      "file_name": "000000052017.jpg",
+      "captions": [
+        "A yellow and blue plant flying in a gray sky.",
+        "A small airplane is flying in the sky.",
+        "A brightly colored single engine plane is high in the clear sky.",
+        "I am unable to see an image above.",
+        "An old yellow plane is flying in the sky."
+      ],
+      "objects": [
+        "airplane",
+        "person"
+      ]
+    },
+    {
+      "id": 167240,
+      "file_name": "000000167240.jpg",
+      "captions": [
+        "A vase siting on top of a wooden shelf near a map.",
+        "A blue vase with an orange floral patters sits in front of a map.",
+        "An inlaid vase sitting in front of a map.",
+        "A brightly colored flower vase sits in front of a wall map.",
+        "A vase with red flowers on it next to a map."
+      ],
+      "objects": [
+        "vase"
+      ]
+    },
+    {
+      "id": 8844,
+      "file_name": "000000008844.jpg",
+      "captions": [
+        "Smiling lady standing by two bunches of bananas on a table.",
+        "A woman smiling as she walks toward bunches of bananas. ",
+        "a black woman standing over a bushel of yellow bananas",
+        "An African woman is smiling above a large group of bananas. ",
+        "A middle aged black woman is standing behind a table full of bananas."
+      ],
+      "objects": [
+        "banana",
+        "person"
+      ]
+    },
+    {
+      "id": 198960,
+      "file_name": "000000198960.jpg",
+      "captions": [
+        "A group of sheep standing next to each other on a field.",
+        "three sheep grassing in a pasture side by side.",
+        "Three big horn sheep are in an enclosed pasture. ",
+        "A black and white picture of three lambs. ",
+        "Two sheep and a ram stand next to a fence in the yard "
+      ],
+      "objects": [
+        "sheep"
+      ]
+    },
+    {
+      "id": 572620,
+      "file_name": "000000572620.jpg",
+      "captions": [
+        "A man riding a skateboard on top of a ramp.",
+        "A crowd looks on as a young man does a skateboard trick.",
+        "A man on a skateboard on a ramp in front of spectators.  ",
+        "a man with a hat jumping a barrier with a skate board",
+        "a skateboarder in a blue shirt is doing a trick"
+      ],
+      "objects": [
+        "bottle",
+        "person",
+        "skateboard"
+      ]
+    },
+    {
+      "id": 516804,
+      "file_name": "000000516804.jpg",
+      "captions": [
+        "A bus stop sign with a large building in the background.",
+        "a building and a street sign are by a road",
+        "A close shot of a Bus stop sign near the building. ",
+        "A sign is posted that says this bus stop is closed.",
+        "A street sign reads \"Bus Stop Not In Use\"."
+      ],
+      "objects": [
+        "bus"
+      ]
+    },
+    {
+      "id": 569917,
+      "file_name": "000000569917.jpg",
+      "captions": [
+        "A small bathroom has a sink and a storage rack over the toilet.",
+        "A sink and some shelves are in this small bathroom.",
+        "a a small bathroom with pink tile and trim",
+        "THERE IS A BATHROOM WITH A SINK AND A MIRROR ",
+        "A bathroom with a sink, mirror, and toilet and other items "
+      ],
+      "objects": [
+        "bottle",
+        "sink",
+        "toilet",
+        "toothbrush"
+      ]
+    },
+    {
+      "id": 194724,
+      "file_name": "000000194724.jpg",
+      "captions": [
+        "A pizza sitting on top of a plate next to a foil bag of food.",
+        "A small pizza and a soda pop sit upon a table with magazines, a phone and other items.",
+        "A small pizza and beverage sitting on a wooden table.",
+        "a table with a drink a bottle some paper and a pizza",
+        "A plate has pizza on it next to a drink and a sandwich."
+      ],
+      "objects": [
+        "book",
+        "bottle",
+        "cell phone",
+        "chair",
+        "cup",
+        "dining table",
+        "fork",
+        "pizza",
+        "refrigerator"
+      ]
+    },
+    {
+      "id": 463283,
+      "file_name": "000000463283.jpg",
+      "captions": [
+        "An alcoholic beverage with an orange slice in it. ",
+        "A glass of juice with a spoon and a slice of orange",
+        "A drink with ice and straws in it with a orange slice on the edge of the glass. ",
+        "A glass full of juice with an orange slice sticking out of it.",
+        "A drink that has a slice of an orange in it."
+      ],
+      "objects": [
+        "cup",
+        "dining table",
+        "orange"
+      ]
+    },
+    {
+      "id": 220858,
+      "file_name": "000000220858.jpg",
+      "captions": [
+        "A rowboat with paddles and no passengers is on the beach.",
+        "a white red and gray boat some people a bird and some water",
+        "A small white boat floating on the shore of a lake.",
+        "A boat is on the beach while two men dig in the sand in the distance.",
+        "Row boat at the beach's edge ready to go."
+      ],
+      "objects": [
+        "bird",
+        "boat",
+        "person"
+      ]
+    },
+    {
+      "id": 508917,
+      "file_name": "000000508917.jpg",
+      "captions": [
+        "A train in its full span gives the illusion of a neverending adventure.",
+        "Many people are gathered on the platforms of a train station.",
+        "a train sitting on the tracks at a station",
+        "The passenger train is pulling has arrived at the station.",
+        "a train on a track pulling into a station "
+      ],
+      "objects": [
+        "bench",
+        "clock",
+        "handbag",
+        "person",
+        "train"
+      ]
+    },
+    {
+      "id": 51314,
+      "file_name": "000000051314.jpg",
+      "captions": [
+        "A man is surfing on a small wave.",
+        "A man that is surfing in the water.",
+        "the surfer is riding the wave sideways along the beach.",
+        "A surfer in a wetsuit sliding through the water.",
+        "a man riding a surfboard on a wave in the ocean."
+      ],
+      "objects": [
+        "person",
+        "surfboard"
+      ]
+    },
+    {
+      "id": 178744,
+      "file_name": "000000178744.jpg",
+      "captions": [
+        "A Chicago logo boat is traveling in the water. ",
+        "A yellow boat with people is in a canal.",
+        "A small model yellow boat floating on top of a river.",
+        "a yellow and black boat on a narrow river in a city",
+        "A small yellow boat on the water carrying passengers."
+      ],
+      "objects": [
+        "boat",
+        "person"
+      ]
+    },
+    {
+      "id": 148620,
+      "file_name": "000000148620.jpg",
+      "captions": [
+        "a table that has some computers on it",
+        "Two computers are sitting on a wood desk.",
+        "Computer equipment displayed on desk in open room.",
+        "A computer station on a desk with a computer, laptop and boxes in the background.",
+        "A home office with two computers and a picture."
+      ],
+      "objects": [
+        "keyboard",
+        "laptop",
+        "mouse",
+        "tv"
+      ]
+    },
+    {
+      "id": 458255,
+      "file_name": "000000458255.jpg",
+      "captions": [
+        "A little girl is laying in bed with a book and a cat is next to her.",
+        "a woman laying in bed reading a book with a cat sitting on top",
+        "A girl reading a book in bed with a cat ",
+        "A little girl laying in bed holding a book next to a black cat.",
+        "A woman lies in bed reading a book, and petting a cat."
+      ],
+      "objects": [
+        "bed",
+        "book",
+        "cat",
+        "person"
+      ]
+    },
+    {
+      "id": 68765,
+      "file_name": "000000068765.jpg",
+      "captions": [
+        "A keyboard, mouse, and wires on a desk.",
+        "a keyboard and a mouse sitting next to each other on a table.",
+        "A clean white keyboard laying on the table",
+        "A keyboard sitting on a desk next to a computer mouse.",
+        "A black and white photo of a computer keyboard, flash drive, and mouse on a marble tabletop."
+      ],
+      "objects": [
+        "keyboard",
+        "mouse"
+      ]
+    },
+    {
+      "id": 468925,
+      "file_name": "000000468925.jpg",
+      "captions": [
+        "a plate with bacon, eggs and hamburger topped with bananas",
+        "A plate of chicken fried steak with bananas on top, eggs and bacon.",
+        "banana pieces placed on beacon and sausage on a white plate",
+        "French bread on a plate with eggs, bacon and banana slices atop the bread.",
+        "A plate with meat and bananas on top "
+      ],
+      "objects": [
+        "banana",
+        "cup",
+        "knife",
+        "sandwich",
+        "spoon"
+      ]
+    },
+    {
+      "id": 540414,
+      "file_name": "000000540414.jpg",
+      "captions": [
+        "A group of people are sitting outside an outdoor market.",
+        "Vendors selling various fresh foods at an outdoor market",
+        "The people are sitting and standing at the event in the street.",
+        "People are gathering at an outdoor food market.",
+        "Group of people enjoying food at a market."
+      ],
+      "objects": [
+        "bottle",
+        "bowl",
+        "bus",
+        "handbag",
+        "person",
+        "umbrella"
+      ]
+    },
+    {
+      "id": 181666,
+      "file_name": "000000181666.jpg",
+      "captions": [
+        "a flock of goats and some men watching them",
+        "a man and a large herd of goats in a desert setting.",
+        "The nomadic sheepherd walks behind a large group of livestock in their desert habitat.",
+        "A man is herding his goats is the desert",
+        "Men keep watch on a herd of goats."
+      ],
+      "objects": [
+        "person",
+        "sheep"
+      ]
+    },
+    {
+      "id": 492110,
+      "file_name": "000000492110.jpg",
+      "captions": [
+        "A man looking at a laptop with a confused look",
+        "A man sits in a coffee shop working on his laptop computer.",
+        "A man on a laptop in a coffee shop.",
+        "A man sitting at a desk on a laptop computer.",
+        "A man is using his laptop in a cafe"
+      ],
+      "objects": [
+        "cell phone",
+        "chair",
+        "cup",
+        "dining table",
+        "laptop",
+        "person"
+      ]
+    },
+    {
+      "id": 189078,
+      "file_name": "000000189078.jpg",
+      "captions": [
+        "Variety of fruits such as bananas, oranges, and apples on a platter.",
+        "FRUITS AND VEGETABLES ON A CUTTING BOARD ON TOP OF TABLE",
+        "a slab holds some fruit and vegetables on it ",
+        "Several assorted mixed fruits and vegetables on a fruit plate.",
+        "An assortment of different fruits laying in two rows on a tray"
+      ],
+      "objects": [
+        "apple",
+        "banana",
+        "orange"
+      ]
+    },
+    {
+      "id": 193162,
+      "file_name": "000000193162.jpg",
+      "captions": [
+        "a man on a three wheeler following behind a two dogs and a cow",
+        "A black and white cow walking across a lush green field.",
+        "A man is right behind a cow on green grass.",
+        "A man on a vehicle in a field and a few animals.",
+        "a cow walks as a man on a quad follows it "
+      ],
+      "objects": [
+        "cow",
+        "dog",
+        "person",
+        "sheep"
+      ]
+    },
+    {
+      "id": 152870,
+      "file_name": "000000152870.jpg",
+      "captions": [
+        "A giraffe standing on a grass covered field.",
+        "A giraffe stands in an area of dead shrubbery.",
+        "a single giraffe standing in tall brown grass",
+        "A giraffe is standing alone in a dead patch of foliage. ",
+        "A single giraffe is standing in some tall brush looking all around."
+      ],
+      "objects": [
+        "giraffe"
+      ]
+    },
+    {
+      "id": 193429,
+      "file_name": "000000193429.jpg",
+      "captions": [
+        "Man sitting in snow with snowboard attached to shoes. ",
+        "A man sitting down with a snowboard strapped on",
+        "A snow boarder sits in the snow looking at the camera. ",
+        "A male snowboarder sits with his board on a snowy hill.",
+        "A man sits in the snow with a snowboard still on his feet."
+      ],
+      "objects": [
+        "person",
+        "snowboard"
+      ]
+    },
+    {
+      "id": 460682,
+      "file_name": "000000460682.jpg",
+      "captions": [
+        "a horse that is laying down in a field",
+        "black and white of a horse lying  down in a field",
+        "A horse laying in the grass by the water in a black and white photo ",
+        "A horse that is sitting down in an open field.",
+        "A horse that is laying down in a grassy field. "
+      ],
+      "objects": [
+        "horse"
+      ]
+    },
+    {
+      "id": 58111,
+      "file_name": "000000058111.jpg",
+      "captions": [
+        "An orange and white cat laying on top of a sink.",
+        "a cat laying on a table next to a stack of papers",
+        "An orange cat rests on a white counter top",
+        "A cat sleeping on a table with its paw extended out.",
+        "A lone cat lounging on top of a counter."
+      ],
+      "objects": [
+        "book",
+        "cat"
+      ]
+    },
+    {
+      "id": 446117,
+      "file_name": "000000446117.jpg",
+      "captions": [
+        "An orange on the middle of a park bench. ",
+        "A ripe tangerine atop a worn wooden picnic table.",
+        "An orange is sitting by itself on the bench",
+        "An orange is sitting on top of a bench.",
+        "an orange sitting on top of a wooden table"
+      ],
+      "objects": [
+        "bench",
+        "orange"
+      ]
+    },
+    {
+      "id": 356094,
+      "file_name": "000000356094.jpg",
+      "captions": [
+        "A man holding a baseball bat wearing a baseball uniform.",
+        "a man in a baseball uniform holding a bat",
+        "A man is up to bat on a baseball field.",
+        "A man prepares to swing his bat while another man looks at him on the baseball field. ",
+        "A man in a baseball uniform ready to swing at a pitch."
+      ],
+      "objects": [
+        "baseball bat",
+        "baseball glove",
+        "person"
+      ]
+    },
+    {
+      "id": 509403,
+      "file_name": "000000509403.jpg",
+      "captions": [
+        "A family outside in a yard playing frisbee with their dog. ",
+        "The dog runs near an adult who plays with two children.",
+        "A man, two kids and a dog are playing Frisbee.",
+        "A man throws a ball with to small boys in a yard as a dog runs around.",
+        "A man is playing catch with two children and a dog. \n"
+      ],
+      "objects": [
+        "dog",
+        "frisbee",
+        "person"
+      ]
+    },
+    {
+      "id": 133631,
+      "file_name": "000000133631.jpg",
+      "captions": [
+        "The old, adult elephant stands near a wire fence.",
+        "An elephant standing next to an electric fence",
+        "An elephant at a zoo on a sunny day",
+        "A picture of an elephant in a zoo enclosure.",
+        "An elephant standing inside of a dirt pen."
+      ],
+      "objects": [
+        "elephant"
+      ]
+    },
+    {
+      "id": 102820,
+      "file_name": "000000102820.jpg",
+      "captions": [
+        "Young girls sitting on wooden decking with decorated cake.",
+        "A young child that is sitting by a red cake.",
+        "A child with a red spider man cake.",
+        "A boy sitting cross legged on a porch with a cake in front of him.",
+        "A child sitting cross legged in front of a birthday cake."
+      ],
+      "objects": [
+        "cake",
+        "person"
+      ]
+    },
+    {
+      "id": 284282,
+      "file_name": "000000284282.jpg",
+      "captions": [
+        "A blender is sitting next to a printer.",
+        "An old blender and printer sitting on a table.",
+        "An old blender is sitting next to a printer.",
+        "A blender laying on a table in a room.",
+        "A GREEN TABLE WITH A OLD RUSTY BLENDER AND A PRINTER "
+      ],
+      "objects": [
+        "dining table"
+      ]
+    },
+    {
+      "id": 490413,
+      "file_name": "000000490413.jpg",
+      "captions": [
+        "The airplane has landed behind a fence with barbed wire",
+        "An airplane sitting on a runway with a fence around it.",
+        "The airplane is on the ground, but getting ready for takeoff.",
+        "A plane that is sitting on the asphalt behind a fence.",
+        "A plane is surrounded by a high barbed-wire fence."
+      ],
+      "objects": [
+        "airplane"
+      ]
+    },
+    {
+      "id": 341469,
+      "file_name": "000000341469.jpg",
+      "captions": [
+        "A man standing next to suitcases and bags.",
+        "A man standing next to a stack of red luggage.",
+        "a person standing next to a pile of luggage bags",
+        "A man standing beside several small orange suitcases.",
+        "The red suitcases are setting in a corner, waiting to be bought for a trip."
+      ],
+      "objects": [
+        "bicycle",
+        "handbag",
+        "person",
+        "suitcase"
+      ]
+    },
+    {
+      "id": 9378,
+      "file_name": "000000009378.jpg",
+      "captions": [
+        "Man preforming a trick with a disk toy.",
+        "Adult man displaying abilities using flying yellow disc.",
+        "A man is doing a trick with a frisbee.",
+        "A man holding onto a yellow frisbee while having long hair.",
+        "A man spins a frisbee as the audience looks on."
+      ],
+      "objects": [
+        "frisbee",
+        "person"
+      ]
+    },
+    {
+      "id": 143998,
+      "file_name": "000000143998.jpg",
+      "captions": [
+        "A group of carrots with an organically grown strip tag around them.",
+        "A bunch of carrots on a knife sitting on a cutting board.",
+        "A bunch of carrots sitting on top of a cutting board.",
+        "A pie of carrots and a knife on a cutting board. ",
+        "a thing of carrots that are laying on a board"
+      ],
+      "objects": [
+        "carrot",
+        "dining table",
+        "knife"
+      ]
+    },
+    {
+      "id": 195842,
+      "file_name": "000000195842.jpg",
+      "captions": [
+        "A person playing the Nintendo Wii in their messy living room",
+        "a room that has a lady with a remote in hand",
+        "A woman in a messy living room playing the Wii.",
+        "a person standing in a living room with a remote control",
+        "a man plays Wii Sports boxing in a very messy living room"
+      ],
+      "objects": [
+        "bowl",
+        "chair",
+        "clock",
+        "couch",
+        "person",
+        "remote",
+        "tv"
+      ]
+    },
+    {
+      "id": 348488,
+      "file_name": "000000348488.jpg",
+      "captions": [
+        "A Egyptian painting with 4 black horses on it",
+        "Four black horses being driven across the sky on this ancient vase. ",
+        "A decorative vase with several black horses and a rider. ",
+        "A vase with a painting of a man riding a horse drawn carriage.",
+        "A brown vase has four black horses on it."
+      ],
+      "objects": [
+        "horse",
+        "vase"
+      ]
+    },
+    {
+      "id": 355169,
+      "file_name": "000000355169.jpg",
+      "captions": [
+        "A electronic sign at an airport listing the flights.",
+        "A station with departing times on the board.",
+        "A flight board in an airplane from 10-29-2011.",
+        "A timetable for flight arrivals and departures. ",
+        "A foreign airline status board with a clock."
+      ],
+      "objects": [
+        "clock"
+      ]
+    },
+    {
+      "id": 420281,
+      "file_name": "000000420281.jpg",
+      "captions": [
+        "A man wearing glasses eating a hot dog.",
+        "A man eats a hot dog while looking at the camera.",
+        " A young man with glasses eating a hot dog with bun.",
+        "A man with thick black glasses eats a hotdog.",
+        "A man who is putting a hot dog in his mouth."
+      ],
+      "objects": [
+        "hot dog",
+        "person"
+      ]
+    },
+    {
+      "id": 35062,
+      "file_name": "000000035062.jpg",
+      "captions": [
+        "a sleeping child in a bed with a black and white cover",
+        "A bed with a person sleeping in it covered in a blanket.",
+        "A little boy asleep under a sunflower print blanket",
+        "A person in a bed with a dark bedspread with flowers.",
+        "Child in bed covered with a flower patterned blanket. "
+      ],
+      "objects": [
+        "bed",
+        "person"
+      ]
+    },
+    {
+      "id": 213035,
+      "file_name": "000000213035.jpg",
+      "captions": [
+        "Two sets of hands are each holding a cell phone while another hand in the background is holding a glass.",
+        "Two adult hands touching cell phones together as a third watches.",
+        "Two men holding smart phones next to each other.",
+        "Two men are holding phones together to create a linking .",
+        "Two people bump their cell phones together at a party"
+      ],
+      "objects": [
+        "cell phone",
+        "person",
+        "wine glass"
+      ]
+    },
+    {
+      "id": 359937,
+      "file_name": "000000359937.jpg",
+      "captions": [
+        "A double decker bus is parked in the parking lot.",
+        "A yellow, white, and brown double decker bus parked in a lot.",
+        "A large double decked bus parked in a lot.",
+        "A large orange double decker bus parked in a parking lot.",
+        "an orange double decker bus parked in a parking lot"
+      ],
+      "objects": [
+        "bus"
+      ]
+    },
+    {
+      "id": 395633,
+      "file_name": "000000395633.jpg",
+      "captions": [
+        "A red and black boat floating on top of water.",
+        "A red boat floating in front of a city scape.",
+        "a big boat on a river with a cityscape in the background ",
+        "A boat that is sitting in the water.",
+        "There is a large ship in the middle of the ocean. "
+      ],
+      "objects": [
+        "boat",
+        "person"
+      ]
+    },
+    {
+      "id": 512776,
+      "file_name": "000000512776.jpg",
+      "captions": [
+        "a person standing next to a person getting ready to catch a ball",
+        "A catcher with a catcher's mitt on squatting behind a baseball player.",
+        "The home plate with the back catcher and someone ready to bat.",
+        "A catcher crouched behind a baseball player at bat.",
+        "A man standing next to a base on a baseball field."
+      ],
+      "objects": [
+        "baseball glove",
+        "person"
+      ]
+    },
+    {
+      "id": 50943,
+      "file_name": "000000050943.jpg",
+      "captions": [
+        "A person riding a wave on top of a surfboard.",
+        "Man surfing a wave on a dull day.",
+        "a surfer riding in a stormy looking wave",
+        "This person is riding a big wave on the water.",
+        "A person on a surf board by a big wave."
+      ],
+      "objects": [
+        "person",
+        "surfboard"
+      ]
+    },
+    {
+      "id": 350122,
+      "file_name": "000000350122.jpg",
+      "captions": [
+        "A busy bus station with ramp going downstairs.",
+        "A woman walking a bike down a walkway in a  train station.",
+        "Adult with bicycle on ramp of commuter railway platform.",
+        "Many people are waiting for a bus at the bus terminal.",
+        "A bunch of people in a building doing different things"
+      ],
+      "objects": [
+        "backpack",
+        "bicycle",
+        "bus",
+        "handbag",
+        "person",
+        "train"
+      ]
+    },
+    {
+      "id": 279774,
+      "file_name": "000000279774.jpg",
+      "captions": [
+        "A baseball player is getting ready to hit a ball.",
+        "a small baseball little league player is at bat",
+        "The Little League batter is taking a swing at home plate.",
+        "Two young boys playing t-ball at ball park",
+        "a little league baseball game in progress, player swinging the bat"
+      ],
+      "objects": [
+        "baseball bat",
+        "chair",
+        "person"
+      ]
+    },
+    {
+      "id": 532481,
+      "file_name": "000000532481.jpg",
+      "captions": [
+        "A person kitesurfing over the waves of the ocean's shore.",
+        "a kite surfer is doing a flying trick over some water",
+        "A man is flying up in the air and having fun. ",
+        "A guy is waterboarding in the ocean on a windy day.",
+        "A person kite boarding in rough seas near the shoreline."
+      ],
+      "objects": [
+        "car",
+        "kite",
+        "person",
+        "surfboard"
+      ]
+    },
+    {
+      "id": 278749,
+      "file_name": "000000278749.jpg",
+      "captions": [
+        "a black and white photo of a person holding a sign",
+        "Many people walk on a sidewalk as a man holds a restaurant sign.",
+        "A man holding a street sign giving directions on a city road",
+        "Black and white photo of a sidewalk with a person holding a Subway sign in the foreground.",
+        "a man holds a sign advertising a deli "
+      ],
+      "objects": [
+        "car",
+        "handbag",
+        "person"
+      ]
+    }
+  ]
+}
