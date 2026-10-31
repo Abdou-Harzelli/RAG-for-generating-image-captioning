@@ -149,3 +149,6 @@ Test IDs file:              data\coco_rag_data\test_ids.json
 =============================================
 *la commande d'execution est:*
 python .\scripts\build_test_metadata.py
+
+*Run this command to execute : INTEGRATION TEST Metadata AND Captions with images*
+ python3 scripts/test_phase1_integration.py
