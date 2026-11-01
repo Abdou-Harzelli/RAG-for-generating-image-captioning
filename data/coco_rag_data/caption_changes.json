@@ -1,0 +1,701 @@
+{
+  "total_modified_images": 29,
+  "changes": [
+    {
+      "image_id": 2193,
+      "file_name": "000000002193.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A small teddy bear sitting on a bench in a dark room.",
+        "A teddy bear is sitting on a couch.",
+        "A white teddy bear sitting alone on a couch.",
+        "a white teddy bear siting on a couch",
+        "A teddy bear and a hand towel are on a couch.",
+        "A white teddy bear sitting on couch next to wall."
+      ],
+      "captions_after": [
+        "A small teddy bear sitting on a bench in a dark room.",
+        "A teddy bear is sitting on a couch.",
+        "A white teddy bear sitting alone on a couch.",
+        "a white teddy bear siting on a couch",
+        "A teddy bear and a hand towel are on a couch."
+      ],
+      "captions_removed": [
+        "A white teddy bear sitting on couch next to wall."
+      ]
+    },
+    {
+      "image_id": 13714,
+      "file_name": "000000013714.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A city under a green sky with the sun over head.",
+        "A picture of a sun that is over a street.",
+        "A sun that is looking over a street.",
+        "The city skyline is shown behind power lines.",
+        "A VIEW OF A FOGGY CITY LINE LIGHT ",
+        "a telephone pole a water tower and some buildings"
+      ],
+      "captions_after": [
+        "A city under a green sky with the sun over head.",
+        "A picture of a sun that is over a street.",
+        "A sun that is looking over a street.",
+        "The city skyline is shown behind power lines.",
+        "A VIEW OF A FOGGY CITY LINE LIGHT "
+      ],
+      "captions_removed": [
+        "a telephone pole a water tower and some buildings"
+      ]
+    },
+    {
+      "image_id": 59934,
+      "file_name": "000000059934.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A surf boarder is high in the air over snow.",
+        "A person on a snow board doing a flip in the air.",
+        "That looks like a huge jump on the snow.",
+        "A person on a snowboard up in the air.",
+        "A person that is doing a trick in the air.",
+        "The snowboarder is soaring past the tall trees."
+      ],
+      "captions_after": [
+        "A surf boarder is high in the air over snow.",
+        "A person on a snow board doing a flip in the air.",
+        "That looks like a huge jump on the snow.",
+        "A person on a snowboard up in the air.",
+        "A person that is doing a trick in the air."
+      ],
+      "captions_removed": [
+        "The snowboarder is soaring past the tall trees."
+      ]
+    },
+    {
+      "image_id": 67462,
+      "file_name": "000000067462.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A woman with black hair sitting next to a woman in a red flowery dress.",
+        "A woman in a blue dress sits on a couch across from a woman wearing pink sitting in a chair while a purple balloon with a ribbon is between them.",
+        "Two women sitting in a liviing room at a party",
+        "A couple of women converse at a small party",
+        "A couple of woman have a coversation at a party",
+        "Two women sitting around a balloon across from each other."
+      ],
+      "captions_after": [
+        "A woman with black hair sitting next to a woman in a red flowery dress.",
+        "A woman in a blue dress sits on a couch across from a woman wearing pink sitting in a chair while a purple balloon with a ribbon is between them.",
+        "Two women sitting in a liviing room at a party",
+        "A couple of women converse at a small party",
+        "A couple of woman have a coversation at a party"
+      ],
+      "captions_removed": [
+        "Two women sitting around a balloon across from each other."
+      ]
+    },
+    {
+      "image_id": 90718,
+      "file_name": "000000090718.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "Large brown bear walking on top of a boulder by itself. ",
+        "A  close shot of a brown black bear walking alone.",
+        "a brown bear is walking lazily down the road",
+        "A brown bear walking across a stone ground.",
+        "a brown bear walks lazily along the dirt",
+        "A brown bear standing next to a river"
+      ],
+      "captions_after": [
+        "Large brown bear walking on top of a boulder by itself. ",
+        "A  close shot of a brown black bear walking alone.",
+        "a brown bear is walking lazily down the road",
+        "A brown bear walking across a stone ground.",
+        "a brown bear walks lazily along the dirt"
+      ],
+      "captions_removed": [
+        "A brown bear standing next to a river"
+      ]
+    },
+    {
+      "image_id": 126246,
+      "file_name": "000000126246.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A snowboarder is going through a pipe vertically.",
+        "A crowd of people watching someone doing snowboarding stunts. ",
+        "A group of people a snow boarding out in the snow.",
+        "Snow boarder competitor high on the wall of a half pipe.",
+        "A man flying down the side of a snow covered slope.",
+        "A snowboarder is riding up a side of a half pipe."
+      ],
+      "captions_after": [
+        "A snowboarder is going through a pipe vertically.",
+        "A crowd of people watching someone doing snowboarding stunts. ",
+        "A group of people a snow boarding out in the snow.",
+        "Snow boarder competitor high on the wall of a half pipe.",
+        "A man flying down the side of a snow covered slope."
+      ],
+      "captions_removed": [
+        "A snowboarder is riding up a side of a half pipe."
+      ]
+    },
+    {
+      "image_id": 156328,
+      "file_name": "000000156328.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A young boy surfing a small wave by himself",
+        "A surfer out in the water surfing with little waves.",
+        "There is no image but I have to still write to move forwar",
+        "A young boy rides a small wave on a yellow surfboard.",
+        "A young man riding a yellow surfboard on a wave in the ocean.",
+        "A boy surfing on a wave with his surfboard."
+      ],
+      "captions_after": [
+        "A young boy surfing a small wave by himself",
+        "A surfer out in the water surfing with little waves.",
+        "There is no image but I have to still write to move forwar",
+        "A young boy rides a small wave on a yellow surfboard.",
+        "A young man riding a yellow surfboard on a wave in the ocean."
+      ],
+      "captions_removed": [
+        "A boy surfing on a wave with his surfboard."
+      ]
+    },
+    {
+      "image_id": 182933,
+      "file_name": "000000182933.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "a cat laying on the shoulders of a woman reading a book ",
+        "Women doing sudoku with her cat on her shoulder.",
+        "A woman reading a book with a cat on her shoulders.",
+        "A woman reading a book has cat sitting on her shoulder.",
+        "The cat is laying on the woman's shoulders while she is reading a book.",
+        "A woman working on a puzzle book with a cat sittting on her shoulders."
+      ],
+      "captions_after": [
+        "a cat laying on the shoulders of a woman reading a book ",
+        "Women doing sudoku with her cat on her shoulder.",
+        "A woman reading a book with a cat on her shoulders.",
+        "A woman reading a book has cat sitting on her shoulder.",
+        "The cat is laying on the woman's shoulders while she is reading a book."
+      ],
+      "captions_removed": [
+        "A woman working on a puzzle book with a cat sittting on her shoulders."
+      ]
+    },
+    {
+      "image_id": 183342,
+      "file_name": "000000183342.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A table topped with a plate with a pizza on it.",
+        "a person eating a pizza sitting on a table",
+        "an image of a small pizza on a plate",
+        "Someone adding a slice of pizza to their plate.",
+        "Gourmet pizza sitting on a table next to a glass of wine.",
+        "A hand cutting a slice of pizza on a plate"
+      ],
+      "captions_after": [
+        "A table topped with a plate with a pizza on it.",
+        "a person eating a pizza sitting on a table",
+        "an image of a small pizza on a plate",
+        "Someone adding a slice of pizza to their plate.",
+        "Gourmet pizza sitting on a table next to a glass of wine."
+      ],
+      "captions_removed": [
+        "A hand cutting a slice of pizza on a plate"
+      ]
+    },
+    {
+      "image_id": 195998,
+      "file_name": "000000195998.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A man stands outside with an orange in his hand and an umbrella top covering his head.",
+        "A man in an umbrella hat eating an orange",
+        "A man wearing a beach ball colored umbrella hat.",
+        "There is a man wearing an umbrella hat",
+        "A man wearing a colorful umbrella hat holds an orange.",
+        "A man in a colorful umbrella hat holds an orange."
+      ],
+      "captions_after": [
+        "A man stands outside with an orange in his hand and an umbrella top covering his head.",
+        "A man in an umbrella hat eating an orange",
+        "A man wearing a beach ball colored umbrella hat.",
+        "There is a man wearing an umbrella hat",
+        "A man wearing a colorful umbrella hat holds an orange."
+      ],
+      "captions_removed": [
+        "A man in a colorful umbrella hat holds an orange."
+      ]
+    },
+    {
+      "image_id": 205023,
+      "file_name": "000000205023.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A very big grassy field with a bunch of bats together.",
+        "Baseball bats are resting upon each other next to an athletic field.",
+        "A group of baseball bats leaned together on a field.",
+        "A group of softball bats leaned against each other on a field.",
+        "A stack of baseball bats sitting on top of a green field.",
+        "ball bats standing on end leaning against each other "
+      ],
+      "captions_after": [
+        "A very big grassy field with a bunch of bats together.",
+        "Baseball bats are resting upon each other next to an athletic field.",
+        "A group of baseball bats leaned together on a field.",
+        "A group of softball bats leaned against each other on a field.",
+        "A stack of baseball bats sitting on top of a green field."
+      ],
+      "captions_removed": [
+        "ball bats standing on end leaning against each other "
+      ]
+    },
+    {
+      "image_id": 212197,
+      "file_name": "000000212197.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A group of people walking around a tend next to food.",
+        "People near a foil covered grill with fruit and vegetables cooking.",
+        "A grill containing fruit and vegetables near a group of people.",
+        "A group of people and some food on a table.",
+        "People sitting and standing around a table with another table with bananas, corn and skewers of food.",
+        "Roasted plantains, corn on the cub and mushrooms on foil in the foreground with a family sitting down to eat at an outdoor table in the background"
+      ],
+      "captions_after": [
+        "A group of people walking around a tend next to food.",
+        "People near a foil covered grill with fruit and vegetables cooking.",
+        "A grill containing fruit and vegetables near a group of people.",
+        "A group of people and some food on a table.",
+        "People sitting and standing around a table with another table with bananas, corn and skewers of food."
+      ],
+      "captions_removed": [
+        "Roasted plantains, corn on the cub and mushrooms on foil in the foreground with a family sitting down to eat at an outdoor table in the background"
+      ]
+    },
+    {
+      "image_id": 230432,
+      "file_name": "000000230432.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A surfer is riding back side on a wave.",
+        "A surfer is in the middle of a large ocean wave.",
+        "A single surfer riding a wave as it crashes around him",
+        "A person on a surfboard in the water.",
+        "A surfer in wetsuit in the curl of a wave",
+        "A person surfing under a wave in the ocean."
+      ],
+      "captions_after": [
+        "A surfer is riding back side on a wave.",
+        "A surfer is in the middle of a large ocean wave.",
+        "A single surfer riding a wave as it crashes around him",
+        "A person on a surfboard in the water.",
+        "A surfer in wetsuit in the curl of a wave"
+      ],
+      "captions_removed": [
+        "A person surfing under a wave in the ocean."
+      ]
+    },
+    {
+      "image_id": 235168,
+      "file_name": "000000235168.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A long row of modern urinals line up along the wall of a men's bathroom.",
+        "A number of urinal basins in a restroom",
+        "the room is a white and has many toilets on it ",
+        "A picture of a bunch of urinals in a public bathroom.  ",
+        "A whole bunch of urinals lined up in a men's public restroom. ",
+        "A row of white urinals mounted to a restroom wall."
+      ],
+      "captions_after": [
+        "A long row of modern urinals line up along the wall of a men's bathroom.",
+        "A number of urinal basins in a restroom",
+        "the room is a white and has many toilets on it ",
+        "A picture of a bunch of urinals in a public bathroom.  ",
+        "A whole bunch of urinals lined up in a men's public restroom. "
+      ],
+      "captions_removed": [
+        "A row of white urinals mounted to a restroom wall."
+      ]
+    },
+    {
+      "image_id": 250440,
+      "file_name": "000000250440.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A truck that is sitting in the street.",
+        "A colorful delivery truck driving past a tall building.",
+        "A truck covered with fairly skillful graffiti, including an image of an octopus.",
+        "A truck parked on a city street with graffiti on it.",
+        "A cartoon covered truck parks in front of a city building.",
+        "A truck with elaborate paintings all over it."
+      ],
+      "captions_after": [
+        "A truck that is sitting in the street.",
+        "A colorful delivery truck driving past a tall building.",
+        "A truck covered with fairly skillful graffiti, including an image of an octopus.",
+        "A truck parked on a city street with graffiti on it.",
+        "A cartoon covered truck parks in front of a city building."
+      ],
+      "captions_removed": [
+        "A truck with elaborate paintings all over it."
+      ]
+    },
+    {
+      "image_id": 283604,
+      "file_name": "000000283604.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "these young men are skating at a park",
+        "A man riding a skateboard up a wooden ramp.",
+        "A skateboarder is trying to do a trick. ",
+        "A guy skateboarding up a ramp in side a gated area while another guy looks on. ",
+        "One person standing on skateboard platform while another person with a skateboard attempting to go down the slope.",
+        "A kid skateboarding with another watching, on a ramp."
+      ],
+      "captions_after": [
+        "these young men are skating at a park",
+        "A man riding a skateboard up a wooden ramp.",
+        "A skateboarder is trying to do a trick. ",
+        "A guy skateboarding up a ramp in side a gated area while another guy looks on. ",
+        "One person standing on skateboard platform while another person with a skateboard attempting to go down the slope."
+      ],
+      "captions_removed": [
+        "A kid skateboarding with another watching, on a ramp."
+      ]
+    },
+    {
+      "image_id": 324322,
+      "file_name": "000000324322.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "There is an image of two people playing wii.",
+        "This is an image of two people playing wii.",
+        "A group of people playing with the Nintendo Wii.",
+        "Two people playing a video game on the Nintendo Wii.",
+        "Two people playing a video game with three people watching.",
+        "A group of people playing Wii video games"
+      ],
+      "captions_after": [
+        "There is an image of two people playing wii.",
+        "This is an image of two people playing wii.",
+        "A group of people playing with the Nintendo Wii.",
+        "Two people playing a video game on the Nintendo Wii.",
+        "Two people playing a video game with three people watching."
+      ],
+      "captions_removed": [
+        "A group of people playing Wii video games"
+      ]
+    },
+    {
+      "image_id": 325894,
+      "file_name": "000000325894.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "a room with balloons, flowers and many pictures decorating the walls",
+        "Some very pretty flowers with a bunch of balloons.",
+        "A collage of photos, balloons and flowers on display.",
+        "a decorated building with baloons and picture frames on the wall",
+        "There are flowered vases and framed pictures set against a wall with balloons hanging above it.",
+        "There are flowered vases and framed pictures set against a wall with balloons hanging above it."
+      ],
+      "captions_after": [
+        "a room with balloons, flowers and many pictures decorating the walls",
+        "Some very pretty flowers with a bunch of balloons.",
+        "A collage of photos, balloons and flowers on display.",
+        "a decorated building with baloons and picture frames on the wall",
+        "There are flowered vases and framed pictures set against a wall with balloons hanging above it."
+      ],
+      "captions_removed": [
+        "There are flowered vases and framed pictures set against a wall with balloons hanging above it."
+      ]
+    },
+    {
+      "image_id": 341894,
+      "file_name": "000000341894.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "An old stove with cooking materials on it.",
+        "there is an old wood stove in a kitchen.",
+        "An old fashioned stove top oven in a kitchen.",
+        "The antique stove has many old pots on it.",
+        "An old metal stove has many pots and pans on it.",
+        "a kitchen with a stove and pots and pans"
+      ],
+      "captions_after": [
+        "An old stove with cooking materials on it.",
+        "there is an old wood stove in a kitchen.",
+        "An old fashioned stove top oven in a kitchen.",
+        "The antique stove has many old pots on it.",
+        "An old metal stove has many pots and pans on it."
+      ],
+      "captions_removed": [
+        "a kitchen with a stove and pots and pans"
+      ]
+    },
+    {
+      "image_id": 363273,
+      "file_name": "000000363273.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "a vase and flowers are sitting on a table",
+        "A vase sitting on a table filled with flowers.",
+        "A vase in front of a yellow wall with flowers. ",
+        "A vase with flowers on a black table in front of a yellow wall. ",
+        "A blue striped vase of fake flowers on a black table.",
+        "A vase with a couple of fake flowers in it."
+      ],
+      "captions_after": [
+        "a vase and flowers are sitting on a table",
+        "A vase sitting on a table filled with flowers.",
+        "A vase in front of a yellow wall with flowers. ",
+        "A vase with flowers on a black table in front of a yellow wall. ",
+        "A blue striped vase of fake flowers on a black table."
+      ],
+      "captions_removed": [
+        "A vase with a couple of fake flowers in it."
+      ]
+    },
+    {
+      "image_id": 364374,
+      "file_name": "000000364374.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A stop sign in Asian characters with a camera below it.",
+        "A stop sign that has a camera attached to it.",
+        "A stop sign that is monitored by a camera.",
+        "A red stop sign sitting above a security camera.",
+        "A camera and stop sign bearing foreign language sits on a pole.",
+        "Pole mounted with Japanese stop sign and traffic camera."
+      ],
+      "captions_after": [
+        "A stop sign in Asian characters with a camera below it.",
+        "A stop sign that has a camera attached to it.",
+        "A stop sign that is monitored by a camera.",
+        "A red stop sign sitting above a security camera.",
+        "A camera and stop sign bearing foreign language sits on a pole."
+      ],
+      "captions_removed": [
+        "Pole mounted with Japanese stop sign and traffic camera."
+      ]
+    },
+    {
+      "image_id": 421380,
+      "file_name": "000000421380.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A group of people talking while eating pizza",
+        "A local bar has appetizers and tapas to enjoy the game in the background",
+        "A few people having a conversation at a pizza parlor. ",
+        "People inside of a pizza restaurant eating pizza.",
+        "Some people inside of a pizza restaurant eating pizza.",
+        "People talking to each other in a restaurant."
+      ],
+      "captions_after": [
+        "A group of people talking while eating pizza",
+        "A local bar has appetizers and tapas to enjoy the game in the background",
+        "A few people having a conversation at a pizza parlor. ",
+        "People inside of a pizza restaurant eating pizza.",
+        "Some people inside of a pizza restaurant eating pizza."
+      ],
+      "captions_removed": [
+        "People talking to each other in a restaurant."
+      ]
+    },
+    {
+      "image_id": 424607,
+      "file_name": "000000424607.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "there is a man jumping to hit the ball ",
+        "a man with a tennis racket hits a ball ",
+        "A man extending a racquet toward a tennis ball.",
+        "a man is swinging a tennis racket in the air",
+        "A tennis player hits the ball during a match.",
+        "A male tennis player holding a tennis racket serving the yellow tennis ball from the perspective of standing behind a chain link fence."
+      ],
+      "captions_after": [
+        "there is a man jumping to hit the ball ",
+        "a man with a tennis racket hits a ball ",
+        "A man extending a racquet toward a tennis ball.",
+        "a man is swinging a tennis racket in the air",
+        "A tennis player hits the ball during a match."
+      ],
+      "captions_removed": [
+        "A male tennis player holding a tennis racket serving the yellow tennis ball from the perspective of standing behind a chain link fence."
+      ]
+    },
+    {
+      "image_id": 464498,
+      "file_name": "000000464498.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "a few batches of various baked goods like donuts, croissants, slices of raisin bread, and bread rolls.",
+        "Assorted pastries and tongs have been arranged above stacks of plates.",
+        "Food and sweets on the end of a buffet line.",
+        "Food and sweets on the end of a buffet.",
+        "a table of desserts in serving trays with tongs",
+        "A buffet with an assortment of pastries such as donuts, turnovers, and breads. "
+      ],
+      "captions_after": [
+        "a few batches of various baked goods like donuts, croissants, slices of raisin bread, and bread rolls.",
+        "Assorted pastries and tongs have been arranged above stacks of plates.",
+        "Food and sweets on the end of a buffet line.",
+        "Food and sweets on the end of a buffet.",
+        "a table of desserts in serving trays with tongs"
+      ],
+      "captions_removed": [
+        "A buffet with an assortment of pastries such as donuts, turnovers, and breads. "
+      ]
+    },
+    {
+      "image_id": 476074,
+      "file_name": "000000476074.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A baseball player prepares to hit a home run.",
+        "a couple of people that are at home plate",
+        "A picture of baseball players on the field in front of a crowd. ",
+        "A group of baseball players are playing baseball while a crowd watches.",
+        "A baseball player standing next to a base.",
+        "a man about to take bat at a baseball game"
+      ],
+      "captions_after": [
+        "A baseball player prepares to hit a home run.",
+        "a couple of people that are at home plate",
+        "A picture of baseball players on the field in front of a crowd. ",
+        "A group of baseball players are playing baseball while a crowd watches.",
+        "A baseball player standing next to a base."
+      ],
+      "captions_removed": [
+        "a man about to take bat at a baseball game"
+      ]
+    },
+    {
+      "image_id": 501177,
+      "file_name": "000000501177.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A man is wearing a hoodie and talking on the phone.",
+        "The young man is sitting down on his telephone.",
+        "Young man wearing hoodie making hand gesture next to his face.",
+        "a young man smiling while he talks on his cell phone",
+        "Hooded jacket wearing man talking on a cell phone.",
+        "Hooded jacket wearing man talking on a cell phone."
+      ],
+      "captions_after": [
+        "A man is wearing a hoodie and talking on the phone.",
+        "The young man is sitting down on his telephone.",
+        "Young man wearing hoodie making hand gesture next to his face.",
+        "a young man smiling while he talks on his cell phone",
+        "Hooded jacket wearing man talking on a cell phone."
+      ],
+      "captions_removed": [
+        "Hooded jacket wearing man talking on a cell phone."
+      ]
+    },
+    {
+      "image_id": 553482,
+      "file_name": "000000553482.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A small white truck parked next to a couple of trees.",
+        "A white city truck parked on the side of a street.",
+        "White truck with \"SDOT\" on side door, possibly Washington State license plate.",
+        "A street sweeper driving down a city street",
+        "an image of a white truck parked on the side of the street",
+        "A white street sweeper truck on a road."
+      ],
+      "captions_after": [
+        "A small white truck parked next to a couple of trees.",
+        "A white city truck parked on the side of a street.",
+        "White truck with \"SDOT\" on side door, possibly Washington State license plate.",
+        "A street sweeper driving down a city street",
+        "an image of a white truck parked on the side of the street"
+      ],
+      "captions_removed": [
+        "A white street sweeper truck on a road."
+      ]
+    },
+    {
+      "image_id": 561594,
+      "file_name": "000000561594.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A woman leaning over a long table of bananas.",
+        "Bananas are in a boat on the water.",
+        "A man with many bananas on his boat leans over.",
+        "A man is in a boat full of bananas\n",
+        "Bananas or plantains loaded in a canoe at the water's edge.",
+        "A person on a long boat filled with bananas."
+      ],
+      "captions_after": [
+        "A woman leaning over a long table of bananas.",
+        "Bananas are in a boat on the water.",
+        "A man with many bananas on his boat leans over.",
+        "A man is in a boat full of bananas\n",
+        "Bananas or plantains loaded in a canoe at the water's edge."
+      ],
+      "captions_removed": [
+        "A person on a long boat filled with bananas."
+      ]
+    },
+    {
+      "image_id": 563665,
+      "file_name": "000000563665.jpg",
+      "captions_count_before": 6,
+      "captions_count_after": 5,
+      "captions_before": [
+        "A red passenger train at an underground platform.",
+        "That thing is really red and slow lol",
+        "orange subway car stopped at a subway station",
+        "A red train pulls up to an underground train platform.",
+        "A train parked on the tracks in the subway.",
+        "A subway train pulls into a subway station."
+      ],
+      "captions_after": [
+        "A red passenger train at an underground platform.",
+        "That thing is really red and slow lol",
+        "orange subway car stopped at a subway station",
+        "A red train pulls up to an underground train platform.",
+        "A train parked on the tracks in the subway."
+      ],
+      "captions_removed": [
+        "A subway train pulls into a subway station."
+      ]
+    }
+  ]
+}
