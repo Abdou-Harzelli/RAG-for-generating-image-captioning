@@ -152,3 +152,19 @@ python .\scripts\build_test_metadata.py
 
 *Run this command to execute : INTEGRATION TEST Metadata AND Captions with images*
  python3 scripts/test_phase1_integration.py
+
+ ## step 3 , Image Transformation Pipeline (Member 1)
+*nom de fichier est: image_pipeline.py (inside scripts/)*
+
+This script builds the `ImageTransformationPipeline` class to prepare raw images for the AI models. It automatically handles:
+1. EXIF rotation correction
+2. Forcing RGB format (prevents crashes from Grayscale/CMYK)
+3. Resizing and Center Cropping to 224x224
+
+output exemple:
+Step 3_1 has been Completed: Image Pipeline is ready for you to use in batch processing!
+
+*la commande d'execution est:*
+python .\scripts\image_pipeline.py
+
+**Note for Member 4:** You can now import `ImageTransformationPipeline` from this file to use in your batch processing script.
