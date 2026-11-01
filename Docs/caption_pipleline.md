@@ -38,9 +38,9 @@ python3 src/preprocessing/caption_pipeline.py --name test --input data/coco_rag_
 
 **Windows**
 ```powershell
-python scripts\caption_pipeline.py --self-test
-python scripts\caption_pipeline.py --name kb --forbid-ids data\coco_rag_data\test_ids.json
-python scripts\caption_pipeline.py --name test --input data\coco_rag_data\test_images_metadata.json
+python src\preprocessing\caption_pipeline.py --self-test
+python src\preprocessing\caption_pipeline.py --name kb --forbid-ids data\coco_rag_data\test_ids.json
+python src\preprocessing\caption_pipeline.py --name test --input data\coco_rag_data\test_images_metadata.json
 ```
 
 Results from our run:
