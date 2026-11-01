@@ -334,3 +334,10 @@ The results should be confirmed by running the updated script.
 - Images without object labels remain in the lookup.
 - `caption_changes.json` records only images whose captions were modified.
 - The cleaning report and comparison file help the team verify and reproduce the preprocessing results.
+
+## Phase 1 Statistics and Anlysis : 
+``` bash 
+pip install nltk 
+```
+
+run every cell cuz they're connected espcaially variables 
