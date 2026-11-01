@@ -1,6 +1,6 @@
 ## Caption processing (cleaning caption)
 
-Script: `scripts/caption_pipeline.py`
+Script: `src/preprocessing/caption_pipeline.py`
 
 ### What it does
 
