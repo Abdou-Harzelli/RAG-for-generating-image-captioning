@@ -384,3 +384,37 @@ data/
 Run the preprocessing script:
 
 python .\scripts\preprocess_images.py        
+
+
+
+
+### Image Batch Processing & Validation (Member 4)
+
+Implemented a batch-processing pipeline to preprocess 10,000 COCO images efficiently in batches of 100.
+
+**Features:**
+- Batch processing with progress tracking.
+- Image resizing to 224 × 224 pixels.
+- Conversion to RGB and JPEG format.
+- Error handling and JSON processing reports.
+- Image integrity and output validation.
+
+**Results:**
+- Images processed: 10,000
+- Batch size: 100 (100 batches)
+- Processing time: 206.83 seconds
+- Failed images: 0
+- Corrupted images: 0
+- Invalid dimensions: 0
+- Non-RGB images: 0
+
+**Validation status:** `SUCCESS`
+
+**Scripts:**
+- `scripts/run_preprocessing_batch.py` — Batch preprocessing.
+- `scripts/diagnose_images.py` — Checks missing and corrupted images.
+- `scripts/validate_processed_images.py` — Validates format, dimensions, and RGB mode.
+
+**Reports:**
+- `data/coco_rag_data/batch_processing_report.json`
+- `data/coco_rag_data/processed_images_batch_diagnostic.json`
