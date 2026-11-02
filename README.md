@@ -341,3 +341,46 @@ pip install nltk
 ```
 
 run every cell cuz they're connected espcaially variables 
+
+
+## Preprocessing results (step1 from STEP3):
+ex of output:
+
+Total images processed: 10,000
+
+Output format: JPEG (.jpg)
+
+Output dimensions: 224 × 224
+
+Color mode: RGB
+
+Successfully processed: 10,000
+
+Failed images: 0
+
+Validation results:
+
+JPEG files found: 10,000
+
+Invalid formats: 0
+
+Invalid dimensions: 0
+
+Non-RGB images: 0
+
+Unreadable images: 0
+
+
+*new strecture:*
+data/
+└── coco_rag_data/
+    └── processed_images/
+        ├── 000000073653.jpg
+        ├── ...
+        └── (10,000 processed images)
+
+## How to validate the images:
+
+Run the preprocessing script:
+
+python .\scripts\preprocess_images.py        
