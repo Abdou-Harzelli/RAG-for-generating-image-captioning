@@ -418,3 +418,36 @@ Implemented a batch-processing pipeline to preprocess 10,000 COCO images efficie
 **Reports:**
 - `data/coco_rag_data/batch_processing_report.json`
 - `data/coco_rag_data/processed_images_batch_diagnostic.json`
+
+
+
+**Member 1 — Image Embedding Extraction: COMPLETED**
+
+I successfully extracted CLIP image embeddings for all 10,000 preprocessed COCO images.
+
+**Configuration:**
+- Model: `openai/clip-vit-base-patch32`
+- Framework: PyTorch + Hugging Face Transformers
+- Device: CPU
+- Batch size: 16
+- Embedding dimension: 512
+- Data type: float32
+- L2 normalization: enabled
+
+**Results:**
+- Images processed: 10,000
+- Failed images: 0
+- Embedding matrix: `(10000, 512)`
+- Processing time: 1,377.62 seconds
+- Status: SUCCESS
+
+*to run the script*
+`python .\scripts\extract_image_embeddings.py--batch-size16`                                                         
+
+**Generated deliverables:**
+- `image_embeddings.npy`
+- `image_embeddings_mapping.json`
+- `image_embeddings_metadata.json`
+- `embedding_report.json`
+
+The image embeddings are ready for the FAISS indexing stage. Please confirm the expected similarity metric and normalization convention before integration.
