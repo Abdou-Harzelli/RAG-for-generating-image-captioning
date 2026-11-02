@@ -1,0 +1,20 @@
+{
+  "started_at_utc": "2026-11-02T11:00:41.084466+00:00",
+  "source_directory": "C:\\Users\\kayou\\OneDrive\\Bureau\\imageProcessing\\RAG-for-generating-image-captioning\\data\\coco_rag_data\\train2017_subset",
+  "output_directory": "C:\\Users\\kayou\\OneDrive\\Bureau\\imageProcessing\\RAG-for-generating-image-captioning\\data\\coco_rag_data\\processed_images_batch",
+  "total_images_selected": 10000,
+  "batch_size": 100,
+  "total_batches": 100,
+  "processed_successfully": 10000,
+  "skipped_valid_outputs": 0,
+  "failed": 0,
+  "elapsed_seconds": 206.83,
+  "output_format": "JPEG",
+  "output_dimensions": [
+    224,
+    224
+  ],
+  "output_mode": "RGB",
+  "status": "SUCCESS",
+  "errors": []
+}
