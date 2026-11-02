@@ -451,3 +451,29 @@ I successfully extracted CLIP image embeddings for all 10,000 preprocessed COCO 
 - `embedding_report.json`
 
 The image embeddings are ready for the FAISS indexing stage. Please confirm the expected similarity metric and normalization convention before integration.
+
+**Member 2 — Text Embedding Extraction: COMPLETED**
+
+Successfully extracted normalized CLIP text embeddings for all 50,000 reference captions in `unified_lookup.json`.
+
+**Configuration:**
+- Model: `openai/clip-vit-base-patch32`
+- Framework: PyTorch + Hugging Face Transformers
+- Device: CPU
+- Batch size: 64
+- Embedding dimension: 512
+- Data type: float32
+- L2 normalization: enabled (FAISS IndexFlatIP ready)
+
+**Results:**
+- Captions processed: 50,000
+- Embedding matrix: `(50000, 512)`
+- Status: SUCCESS
+
+*To run the script:*
+`python .\scripts\extract_text_embeddings.py`
+
+**Generated deliverables:**
+- `data/coco_rag_data/text_embeddings.npy`
+- `data/coco_rag_data/text_embeddings_mapping.json`
+- `data/coco_rag_data/text_embedding_report.json`
