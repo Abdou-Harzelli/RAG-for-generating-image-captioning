@@ -1,0 +1,15 @@
+{
+  "index_type": "IndexFlatIP",
+  "metric": "inner product (= cosine on L2-normalized vectors)",
+  "embedding_dim": 512,
+  "vectors_in_index": 50000,
+  "source_embeddings": "text_embeddings.npy",
+  "source_mapping": "text_embeddings_mapping.json",
+  "index_file": "text_index.faiss",
+  "build_time_seconds": 0.0167,
+  "search_ms_per_query": 2.17,
+  "self_retrieval_top1_exact_id_rate": 1.0,
+  "identical_vectors_in_matrix": 654,
+  "faiss_version": "1.15.1",
+  "status": "SUCCESS"
+}
