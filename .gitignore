@@ -16,3 +16,7 @@ __pycache__/
 
 .venv/
 venv/
+# Generated images - do not commit
+data/coco_rag_data/processed_images/
+data/coco_rag_data/processed_images_batch/
+data/coco_rag_data/processed_images_test/
