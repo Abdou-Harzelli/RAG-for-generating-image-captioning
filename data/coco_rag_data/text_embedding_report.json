@@ -1,0 +1,18 @@
+{
+  "model": "openai/clip-vit-base-patch32",
+  "device": "cpu",
+  "source_file": "captions_kb_flat.jsonl",
+  "text_field": "caption_clean",
+  "total_captions_processed": 50000,
+  "embedding_shape": [
+    50000,
+    512
+  ],
+  "dtype": "float32",
+  "l2_normalization": true,
+  "batch_size": 64,
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.21.0",
+  "processing_time_seconds": 785.61,
+  "status": "SUCCESS"
+}
