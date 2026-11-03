@@ -1,130 +1,141 @@
+# scripts/extract_text_embeddings.py
 import os
 import json
 import time
-import torch
 import numpy as np
+import torch
+import transformers
 from transformers import CLIPTokenizer, CLIPTextModelWithProjection
 
+DATA_DIR = os.path.join("data", "coco_rag_data")
+FLAT_PATH = os.path.join(DATA_DIR, "captions_kb_flat.jsonl")
+NPY_OUT = os.path.join(DATA_DIR, "text_embeddings.npy")
+MAPPING_OUT = os.path.join(DATA_DIR, "text_embeddings_mapping.json")
+REPORT_OUT = os.path.join(DATA_DIR, "text_embedding_report.json")
+
+MODEL_NAME = "openai/clip-vit-base-patch32"
+EMBED_DIM = 512
+EXPECTED_CAPTIONS = 50_000
+BATCH_SIZE = 64
+
+
+def load_flat_rows(path):
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"{path} not found. Run first: "
+            "python src/preprocessing/caption_pipeline.py --name kb "
+            "--forbid-ids data/coco_rag_data/test_ids.json"
+        )
+    with open(path, "r", encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
+
+def pick_device():
+    """Use the GPU only if it can really run PyTorch kernels; otherwise fall back to CPU."""
+    if torch.cuda.is_available():
+        try:
+            (torch.zeros(1, device="cuda") + 1).sum().item()   # forces a real kernel launch
+            return "cuda"
+        except Exception as exc:
+            print(f"CUDA GPU found but not usable with this PyTorch build ({type(exc).__name__}); using CPU.")
+    return "cpu"
+
+
 def extract_text_embeddings():
-    # 1. Setup paths matching README conventions
-    lookup_path = os.path.join("data", "coco_rag_data", "unified_lookup.json")
-    output_dir = os.path.join("data", "coco_rag_data")
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(DATA_DIR, exist_ok=True)
 
-    npy_out = os.path.join(output_dir, "text_embeddings.npy")
-    mapping_out = os.path.join(output_dir, "text_embeddings_mapping.json")
-    report_out = os.path.join(output_dir, "text_embedding_report.json")
+    # 1. Load the flat caption file: single source of truth for row order
+    print(f"Loading captions from {FLAT_PATH}...")
+    flat_rows = load_flat_rows(FLAT_PATH)
 
-    if not os.path.exists(lookup_path):
-        print(f"Error: Unified lookup file not found at {lookup_path}")
-        return
-
-    # 2. Load unified lookup
-    print(f"Loading captions from {lookup_path}...")
-    with open(lookup_path, "r", encoding="utf-8") as f:
-        unified_lookup = json.load(f)
-
-    # --- THE FIX: Handle any JSON structure Member 4 used ---
-    if isinstance(unified_lookup, dict):
-        if "captions" in unified_lookup:
-            unified_lookup = [unified_lookup]  # Wrapped single object
-        elif "images" in unified_lookup:
-            unified_lookup = unified_lookup["images"]  # Wrapped in 'images' root key
-        else:
-            unified_lookup = list(unified_lookup.values())  # Dictionary mapping keys to objects
-
-    # 3. Flatten all 50,000 captions into an ordered list with metadata
-    all_captions = []
-    mapping_metadata = []
-
-    for item in unified_lookup:
-        # Failsafe in case of weird formatting
-        if not isinstance(item, dict):
-            continue
-            
-        image_id = item.get("image_id", item.get("file_name"))
-        file_name = item.get("file_name", "")
-        captions = item.get("captions", [])
-
-        for idx, cap in enumerate(captions):
-            all_captions.append(cap)
-            mapping_metadata.append({
-                "caption_index": len(all_captions) - 1,
-                "image_id": image_id,
-                "file_name": file_name,
-                "caption_sub_id": idx,
-                "caption_text": cap
-            })
-
+    # 2. Embed the CLEANED caption, in file order (row i = FAISS vector i)
+    all_captions = [row["caption_clean"] for row in flat_rows]
     total_captions = len(all_captions)
-    print(f"Extracted {total_captions} captions across {len(unified_lookup)} images.")
+    assert total_captions == EXPECTED_CAPTIONS, (
+        f"Expected {EXPECTED_CAPTIONS} captions, got {total_captions}"
+    )
+    assert all(all_captions), "Found an empty cleaned caption"
 
-    # 4. Initialize CLIP Model
-    model_name = "openai/clip-vit-base-patch32"
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Loading text encoder '{model_name}' on {device}...")
+    mapping_metadata = [
+        {
+            "caption_index": pos,                       # global row = FAISS vector id
+            "image_id": row["image_id"],                # real integer ID
+            "caption_id": row["caption_id"],
+            "file_name": f"{row['image_id']:012d}.jpg",
+            "caption_sub_id": row["caption_index"],     # 0..4 inside the image
+            "caption_text": row["caption_clean"],
+        }
+        for pos, row in enumerate(flat_rows)
+    ]
+    print(f"Loaded {total_captions} captions.")
 
-    tokenizer = CLIPTokenizer.from_pretrained(model_name)
-    model = CLIPTextModelWithProjection.from_pretrained(model_name).to(device)
+    # 3. Initialize CLIP text encoder
+    device = pick_device()
+    print(f"Loading text encoder '{MODEL_NAME}' on {device}...")
+    tokenizer = CLIPTokenizer.from_pretrained(MODEL_NAME)
+    model = CLIPTextModelWithProjection.from_pretrained(MODEL_NAME).to(device)
     model.eval()
 
-    # 5. Extract Embeddings in Batches
-    batch_size = 64
+    # 4. Extract embeddings in batches
     embeddings_list = []
     start_time = time.time()
+    print(f"Generating embeddings in batches of {BATCH_SIZE}...")
 
-    print(f"Generating embeddings in batches of {batch_size}...")
-    for i in range(0, total_captions, batch_size):
-        batch_captions = all_captions[i:i + batch_size]
+    for i in range(0, total_captions, BATCH_SIZE):
+        batch = all_captions[i:i + BATCH_SIZE]
+        inputs = tokenizer(
+            batch, padding=True, truncation=True, max_length=77, return_tensors="pt"
+        ).to(device)
 
-        inputs = tokenizer(batch_captions, padding=True, truncation=True, return_tensors="pt").to(device)
         with torch.no_grad():
-            outputs = model(**inputs)
-            # Text projection layer to match image embedding dimension (512)
-            embeds = outputs.text_embeds
+            embeds = model(**inputs).text_embeds                       # (batch, 512)
+            embeds = embeds / embeds.norm(p=2, dim=-1, keepdim=True)   # L2 normalize
+        embeddings_list.append(embeds.cpu().numpy())
 
-            # Mandatory L2 Normalization for FAISS IndexFlatIP
-            embeds = embeds / embeds.norm(p=2, dim=-1, keepdim=True)
-            embeddings_list.append(embeds.cpu().numpy())
-
-        if (i + batch_size) % 3200 < batch_size or (i + batch_size) >= total_captions:
-            processed = min(i + batch_size, total_captions)
-            print(f"Processed {processed}/{total_captions} captions...")
-
-    # 6. Save Deliverables
-    if not embeddings_list:
-        print("No embeddings were generated. Check your JSON format.")
-        return
+        done = min(i + BATCH_SIZE, total_captions)
+        if (i // BATCH_SIZE) % 50 == 0 or done == total_captions:
+            print(f"Processed {done}/{total_captions} captions...")
 
     embedding_matrix = np.vstack(embeddings_list).astype(np.float32)
     elapsed_time = round(time.time() - start_time, 2)
 
-    np.save(npy_out, embedding_matrix)
-    print(f"Saved numpy embeddings array to: {npy_out}")
+    # 5. Sanity checks (fail loudly instead of saving bad data)
+    assert embedding_matrix.shape == (total_captions, EMBED_DIM), embedding_matrix.shape
+    assert np.isfinite(embedding_matrix).all(), "NaN/Inf found in embeddings"
+    assert np.allclose(np.linalg.norm(embedding_matrix, axis=1), 1.0, atol=1e-3), \
+        "Embeddings are not L2-normalized"
 
-    with open(mapping_out, "w", encoding="utf-8") as f:
+    # 6. Save deliverables
+    np.save(NPY_OUT, embedding_matrix)
+    print(f"Saved numpy embeddings array to: {NPY_OUT}")
+
+    with open(MAPPING_OUT, "w", encoding="utf-8") as f:
         json.dump(mapping_metadata, f, indent=2)
-    print(f"Saved mapping metadata to: {mapping_out}")
+    print(f"Saved mapping metadata to: {MAPPING_OUT}")
 
     report = {
-        "model": model_name,
+        "model": MODEL_NAME,
         "device": device,
+        "source_file": os.path.basename(FLAT_PATH),
+        "text_field": "caption_clean",
         "total_captions_processed": total_captions,
         "embedding_shape": list(embedding_matrix.shape),
         "dtype": str(embedding_matrix.dtype),
         "l2_normalization": True,
+        "batch_size": BATCH_SIZE,
+        "torch_version": torch.__version__,
+        "transformers_version": transformers.__version__,
         "processing_time_seconds": elapsed_time,
-        "status": "SUCCESS"
+        "status": "SUCCESS",
     }
-
-    with open(report_out, "w", encoding="utf-8") as f:
+    with open(REPORT_OUT, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
-    print(f"Saved embedding report to: {report_out}")
+    print(f"Saved embedding report to: {REPORT_OUT}")
 
     print("\n=============================================")
     print("Step 4 Member 2 Complete: Text Embeddings Ready!")
     print(f"Matrix Shape: {embedding_matrix.shape}")
     print("=============================================")
+
 
 if __name__ == "__main__":
     extract_text_embeddings()
