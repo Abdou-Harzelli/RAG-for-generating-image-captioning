@@ -26,16 +26,17 @@ Run these commands from the project root folder.
 Linux / macOS:
 ```bash
 python3 scripts/build_faiss_index.py --name text
-python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings_mapping.json
+python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings/image_embeddings_mapping.json
 ```
 
 Windows:
 ```powershell
 python scripts\build_faiss_index.py --name text
-python scripts\build_faiss_index.py --name image --embeddings data\coco_rag_data\image_embeddings.npy --mapping data\coco_rag_data\image_embeddings_mapping.json
+python scripts\build_faiss_index.py --name image --embeddings data\coco_rag_data\image_embeddings\image_embeddings.npy --mapping data\coco_rag_data\image_embeddings\image_embeddings_mapping.json
 ```
 
-For the image index, use the real file names of your image embeddings.
+The image embeddings are saved in the `image_embeddings/` subfolder, so their paths must be passed.
+The text command uses the default paths. Both indexes are saved in `data/coco_rag_data/`.
 
 ## What the script checks
 1. The embeddings have the right shape `(N, 512)`, no bad numbers (NaN), and length 1.
@@ -48,13 +49,12 @@ Copy the numbers from `data/coco_rag_data/text_index_report.json` and `image_ind
 
 | | Text index | Image index |
 |---|---|---|
-| Vectors | TBD | TBD |
+| Vectors | TBD | 10,000 |
 | Dimension | 512 | 512 |
 | Type / score | IndexFlatIP / inner product | IndexFlatIP / inner product |
-| Build time (seconds) | TBD | TBD |
-| Search time (ms per query) | TBD | TBD |
-| Identical vectors | TBD | TBD |
+| Build time (seconds) | TBD | 0.0036 |
+| Search time (ms per query) | TBD | 0.589 |
+| Identical vectors | TBD | 0 |
 
 "Identical vectors" counts captions that are exactly the same after cleaning, for example two images
 with the caption "a man riding a wave". This is normal. It can cause ties when searching.
-
