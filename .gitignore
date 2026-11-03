@@ -1,22 +1,27 @@
+# Raw COCO data (large, downloaded separately)
 data/val2017/
 data/annotations_trainval2017/
 data/coco_rag_data/train2017_subset/
-data/coco_rag_data/captions_metadata_*.json
 
-# Remove the broad "data/" line and instead ignore large files/folders explicitly:
-*.zip
-*.npy
-*.index
-
-# But explicitly allow tracking JSON reports/manifests if needed:
-!data/**/*.json
-
-__pycache__/
-*.py[cod]
-
-.venv/
-venv/
-# Generated images - do not commit
+# Generated images (large, rebuilt by the scripts)
 data/coco_rag_data/processed_images/
 data/coco_rag_data/processed_images_batch/
 data/coco_rag_data/processed_images_test/
+
+# Large binary files
+*.zip
+*.npy
+*.faiss
+*.index
+
+# Track small JSON reports and manifests
+!data/**/*.json
+
+# Ignore again after the rule above (it would re-include these)
+data/coco_rag_data/captions_metadata_*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
