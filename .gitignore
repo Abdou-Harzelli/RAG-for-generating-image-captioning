@@ -15,7 +15,6 @@ data/coco_rag_data/processed_images_test/
 *.index
 
 # Track small JSON reports and manifests
-!data/**/*.json
 
 # Ignore again after the rule above (it would re-include these)
 data/coco_rag_data/captions_metadata_*.json
@@ -25,3 +24,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# All data
+
+data/
