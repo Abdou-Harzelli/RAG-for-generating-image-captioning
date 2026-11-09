@@ -1,21 +1,18 @@
-# Raw COCO data (large, downloaded separately)
+# Ignore specific large dataset directories inside data/
 data/val2017/
 data/annotations_trainval2017/
 data/coco_rag_data/train2017_subset/
 
-# Generated images (large, rebuilt by the scripts)
-!data/**/*.json
-
-# Large binary files
+# Large binary files anywhere in the repo
 *.zip
 *.npy
 *.faiss
 *.index
 
-# Track small JSON reports and manifests
+# Track small JSON reports and manifests inside data/
 !data/**/*.json
 
-# Ignore again after the rule above (it would re-include these)
+# Ignore specific large JSON metadata files you don't want to track
 data/coco_rag_data/captions_metadata_*.json
 
 # Python
