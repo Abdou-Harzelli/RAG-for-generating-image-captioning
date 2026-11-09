@@ -8,7 +8,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 SEED = 20261027
-NUM_TRAIN_IMAGES = 10_000
+NUM_TRAIN_IMAGES = 10_100
 BASE_URL = "http://images.cocodataset.org/train2017"
 USER_AGENT = "COCO-RAG-Student-Project/1.0"
 
@@ -30,7 +30,7 @@ def find_train_captions(root: Path) -> Path:
 
 
 def load_shared_selection(captions_path: Path, output_dir: Path) -> list[dict]:
-    selection_path = output_dir / "train_subset_10000.json"
+    selection_path = output_dir / "train_subset_10100.json"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Reuse the saved selection so reruns never silently change the dataset.
@@ -82,7 +82,7 @@ def load_shared_selection(captions_path: Path, output_dir: Path) -> list[dict]:
         )
 
     # Also export a simple CSV-like ID list, one filename per line.
-    with (output_dir / "train_subset_10000_filenames.txt").open("w", encoding="utf-8") as f:
+    with (output_dir / "train_subset_10100_filenames.txt").open("w", encoding="utf-8") as f:
         for item in records:
             f.write(item["file_name"] + "\n")
 
@@ -114,8 +114,8 @@ def main() -> int:
     )
     parser.add_argument(
         "--limit", type=int, default=NUM_TRAIN_IMAGES,
-        help="Download only the first N records from the shared 10,000-image selection "
-             "(for testing; use 10000 for the project)"
+        help="Download only the first N records from the shared 10,100-image selection "
+             "(for testing; use 10100 for the project)"
     )
     parser.add_argument(
         "--no-download", action="store_true",
@@ -188,7 +188,7 @@ def main() -> int:
         return 2
 
     print(f"Finished: {success}/{total} selected images are available.")
-    print("Share train_subset_10000.json and this exact script with all team members.")
+    print("Share train_subset_10100.json and this exact script with all team members.")
     return 0
 
 
