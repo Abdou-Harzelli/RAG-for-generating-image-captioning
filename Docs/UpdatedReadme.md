@@ -37,3 +37,10 @@ When running `python scripts/create_splits.py`, the script outputs the following
 - `val_ids.json`: Contains 100 image IDs for validation.
 - `test_ids.json`: Contains 1,000 image IDs for testing.
 
+
+``` bash expected output : 
+└─$ python scripts/create_splits.py
+>>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<
+Splits generated successfully!
+Train KB: 10000 | Val: 100 | Test: 1000 ```
+
