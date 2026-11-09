@@ -251,7 +251,7 @@ def main():
         "--selection-file",
         type=Path,
         default=Path(
-            "data/coco_rag_data/train_subset_10000.json"
+            "data/coco_rag_data/train_subset_10100.json"
         ),
         help="JSON file containing selected training images.",
     )

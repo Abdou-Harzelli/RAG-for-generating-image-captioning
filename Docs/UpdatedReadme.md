@@ -42,5 +42,22 @@ When running `python scripts/create_splits.py`, the script outputs the following
 └─$ python scripts/create_splits.py
 >>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<
 Splits generated successfully!
-Train KB: 10000 | Val: 100 | Test: 1000 ```
+Train KB: 10000 | Val: 100 | Test: 1000
+```
 
+
+## step 3 , check of captions in the 10k imgs et la generation de json special de 10k img
+*nom de fichier est: build_unified_lookup.py*
+the result must look like this :
+========== UNIFIED LOOKUP SUMMARY ==========
+Selected images:          10100
+Images with captions:     10100
+Images with object labels:    9914
+Total captions:           50029
+Output file:              data\coco_rag_data\unified_lookup.json
+=============================================
+
+
+
+*la commande pour executer le fichier est :*
+python .\scripts\build_unified_lookup.py
