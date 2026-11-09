@@ -3,7 +3,7 @@ import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
-''' c un fichier special pour la verification des 100 imgs de test ainsi que la creation d'un fichier json de metadata pour les images de test.'''
+''' c un fichier special pour la verification des 1000 imgs de test ainsi que la creation d'un fichier json de metadata pour les images de test.'''
 
 def load_json(file_path: Path) -> dict:
     """Load a JSON file."""
@@ -216,7 +216,7 @@ def main():
         "--selection-file",
         type=Path,
         default=Path(
-            "data/coco_rag_data/train_subset_10000.json"
+            "data/coco_rag_data/train_subset_10100.json"
         ),
     )
 

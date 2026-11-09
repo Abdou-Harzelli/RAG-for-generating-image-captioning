@@ -58,6 +58,25 @@ Output file:              data\coco_rag_data\unified_lookup.json
 =============================================
 
 
-
 *la commande pour executer le fichier est :*
 python .\scripts\build_unified_lookup.py
+
+
+
+
+## step 3 , check the 100 test img 
+
+ouptupt exemple: 
+*+fichier json nom:test_images_metadata.json*
+--- Test Summary ---
+Selected images:            1000
+Images with captions:       1000
+Images with object labels:  99 (this doesnt exist in the output)
+Total captions:             500
+Images without captions:    0
+Images without object labels: 1 (this too doesnt )
+Test IDs file:              data\coco_rag_data\test_ids.json
+=============================================
+*la commande d'execution est:*
+python .\scripts\build_test_metadata.py
+
