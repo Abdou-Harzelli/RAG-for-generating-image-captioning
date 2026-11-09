@@ -3,13 +3,13 @@ import json
 import random
 
 def generate_splits(
-    train_json_path="data/coco_rag_data/train_subset_10000.json",
+    train_json_path="data/coco_rag_data/train_subset_10100.json",
     output_dir="data/coco_rag_data",
     seed=42
 ):
     random.seed(seed)
     
-    # 1. RAG Knowledge Base -> Full 10,000 images
+    # 1. RAG Knowledge Base -> Full 10,100 images
     with open(train_json_path, 'r', encoding='utf-8') as f:
         train_data = json.load(f)
         
@@ -20,8 +20,19 @@ def generate_splits(
     elif isinstance(train_data, dict):
         train_kb_ids = list(train_data.keys())
 
-    # Ensure we strictly have 10000 for KB if the file has more
-    train_kb_ids = train_kb_ids[:10000]
+    # Ensure we strictly have 10100 for the RAG knowledge base
+    if len(train_kb_ids) < 10100:
+        raise ValueError(f"Expected at least 10,100 images in the training data, found {len(train_kb_ids)}.")
+
+    # load full knowledge base IDs 10100 and shuffle them to ensure randomness
+    random.shuffle(train_kb_ids)
+    train_kb_ids = train_kb_ids[:10100]
+
+    # Carve out 100 for validation from knowledge base (10100 images knowledge base)
+    val_ids = train_kb_ids[10000:10100]  # Next 100 images for validation
+
+    # Carve out the first 10000 for the RAG knowledge base
+    train_kb_ids = train_kb_ids[:10000]  # First 10,000 images for RAG knowledge base
 
     # 2. Load val2017 pool to carve out Testing (100) safely
     val2017_paths = [
@@ -40,12 +51,9 @@ def generate_splits(
     random.shuffle(val2017_all_ids)
 
 
-    # Carve out 100 for validation from train2017 (10000 images of training)
-    val_ids = train_kb_ids[:100]
 
-
-    # Carve out 100 for testing from val2017
-    test_ids = val2017_all_ids[:100]
+    # Carve out 1000 for testing from val2017
+    test_ids = val2017_all_ids[:1000]
     
     # STRICT ANTI-LEAKAGE ASSERTIONS
     set_train = set(train_kb_ids)
@@ -55,6 +63,7 @@ def generate_splits(
 
     assert len(set_train.intersection(set_test)) == 0, "Leakage between Train KB and Test!"
     assert len(set_val.intersection(set_test)) == 0, "Leakage between Val and Test!"
+    assert len(set_train.intersection(set_val)) == 0, "Leakage between Train KB and Val!"
     print(">>> Anti-leakage checks PASSED: Zero overlap confirmed across all splits. <<<")
 
     # Save the files
