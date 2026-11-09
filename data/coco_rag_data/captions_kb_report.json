@@ -1,8 +1,0 @@
-{
-  "images": 10000,
-  "captions": 50000,
-  "images_with_unexpected_caption_count": 0,
-  "empty_after_cleaning": [],
-  "avg_words_raw": 10.461,
-  "avg_words_clean": 10.469
-}
