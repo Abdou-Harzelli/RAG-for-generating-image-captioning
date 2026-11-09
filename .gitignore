@@ -1,7 +1,7 @@
 # Ignore specific large dataset directories inside data/
 data/val2017/
 data/annotations_trainval2017/
-data/coco_rag_data/train2017_subset/
+data/coco_rag_data/
 
 # Large binary files anywhere in the repo
 *.zip
@@ -10,7 +10,7 @@ data/coco_rag_data/train2017_subset/
 *.index
 
 # Track small JSON reports and manifests inside data/
-!data/**/*.json
+/data/
 
 # Ignore specific large JSON metadata files you don't want to track
 data/coco_rag_data/captions_metadata_*.json
