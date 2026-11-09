@@ -4,9 +4,7 @@ data/annotations_trainval2017/
 data/coco_rag_data/train2017_subset/
 
 # Generated images (large, rebuilt by the scripts)
-data/coco_rag_data/processed_images/
-data/coco_rag_data/processed_images_batch/
-data/coco_rag_data/processed_images_test/
+data/
 
 # Large binary files
 *.zip
