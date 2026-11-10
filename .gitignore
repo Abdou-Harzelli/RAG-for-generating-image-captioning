@@ -28,3 +28,8 @@ venv/
 # All data
 
 data/
+
+weights/
+
+yolov8s-world.pt
+

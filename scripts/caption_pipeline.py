@@ -108,7 +108,7 @@ def normalize_lookup(data) -> dict:
 
 def main():
     p = argparse.ArgumentParser(description="Build raw/clean caption store.")
-    p.add_argument("--input", type=Path, default=Path("data/coco_rag_data/unified_lookup.json"))
+    p.add_argument("--input", type=Path, default=Path("data/coco_rag_data/train_kb_lookup.json"))
     p.add_argument("--output-dir", type=Path, default=Path("data/coco_rag_data"))
     p.add_argument("--name", default="kb", help="split name used in file names: kb, test, ...")
     p.add_argument("--forbid-ids", type=Path, default=None,

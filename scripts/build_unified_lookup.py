@@ -1,6 +1,7 @@
 import argparse
 import concurrent.futures
 import json
+import math
 import os
 import re
 import time
@@ -294,13 +295,118 @@ ATTRIBUTE_WORDS = {
 
 CHECKPOINT_ENTRY_KEYS = (
     "objects", "attributes", "detector", "confidence_threshold",
-    "queries_prompt", "detections", "image_path_used",
+    "queries_prompt", "detections", "relationships",
+    "scene_context_tags", "scene_context_primary", "image_path_used",
 )
 
 
 def label_is_attribute(label: str) -> bool:
     words = set(re.findall(r"[a-z]+", label.lower().replace("-", " ")))
     return bool(words & ATTRIBUTE_WORDS)
+
+
+SCENE_CONTEXT_RULES = {
+    "transport": {"car", "truck", "bus", "bicycle", "motorcycle", "train", "boat", "traffic light"},
+    "sports_outdoor": {"person", "bicycle", "horse", "dog", "frisbee", "skateboard", "surfboard"},
+    "urban_outdoor": {"car", "bus", "truck", "traffic light", "person"},
+    "nature_outdoor": {"tree", "plant", "flower", "bird", "horse"},
+    "indoor_home": {"chair", "table", "sofa", "bed", "bottle", "cup", "bowl", "laptop", "television"},
+}
+
+
+def _box_center_and_area(box_xyxy: list[float]) -> tuple[float, float, float]:
+    x1, y1, x2, y2 = box_xyxy
+    w = max(0.0, x2 - x1)
+    h = max(0.0, y2 - y1)
+    cx = x1 + (w / 2.0)
+    cy = y1 + (h / 2.0)
+    return cx, cy, w * h
+
+
+def _box_iou(box_a: list[float], box_b: list[float]) -> float:
+    ax1, ay1, ax2, ay2 = box_a
+    bx1, by1, bx2, by2 = box_b
+
+    ix1 = max(ax1, bx1)
+    iy1 = max(ay1, by1)
+    ix2 = min(ax2, bx2)
+    iy2 = min(ay2, by2)
+
+    iw = max(0.0, ix2 - ix1)
+    ih = max(0.0, iy2 - iy1)
+    inter = iw * ih
+    if inter == 0.0:
+        return 0.0
+
+    _, _, area_a = _box_center_and_area(box_a)
+    _, _, area_b = _box_center_and_area(box_b)
+    union = max(area_a + area_b - inter, 1e-9)
+    return inter / union
+
+
+def infer_relationships(detections: list[dict], max_relationships: int = 24) -> list[dict]:
+    """
+    Build lightweight spatial relationships from object boxes.
+    We only use object-type detections to avoid noisy attribute boxes.
+    """
+    object_dets = [d for d in detections if d.get("type") == "object" and d.get("box_xyxy")]
+    object_dets = sorted(object_dets, key=lambda d: d.get("score", 0.0), reverse=True)
+    object_dets = object_dets[:12]
+
+    relationships: list[dict] = []
+    seen = set()
+
+    for i, src in enumerate(object_dets):
+        for j, dst in enumerate(object_dets):
+            if i == j:
+                continue
+
+            src_box = src["box_xyxy"]
+            dst_box = dst["box_xyxy"]
+
+            src_cx, src_cy, _ = _box_center_and_area(src_box)
+            dst_cx, dst_cy, _ = _box_center_and_area(dst_box)
+            iou = _box_iou(src_box, dst_box)
+
+            if iou >= 0.2:
+                relation = "overlapping"
+            else:
+                dx = dst_cx - src_cx
+                dy = dst_cy - src_cy
+                if abs(dx) >= abs(dy):
+                    relation = "left_of" if dx > 0 else "right_of"
+                else:
+                    relation = "above" if dy > 0 else "below"
+
+                dist = math.hypot(dx, dy)
+                if dist < 80:
+                    relation = "near"
+
+            key = (src["label"], relation, dst["label"])
+            if key in seen:
+                continue
+            seen.add(key)
+
+            relationships.append({
+                "subject": src["label"],
+                "relation": relation,
+                "object": dst["label"],
+                "subject_score": round(float(src.get("score", 0.0)), 4),
+                "object_score": round(float(dst.get("score", 0.0)), 4),
+            })
+
+            if len(relationships) >= max_relationships:
+                return relationships
+
+    return relationships
+
+
+def infer_scene_context(object_labels: set[str]) -> list[str]:
+    tags = []
+    for tag, needed in SCENE_CONTEXT_RULES.items():
+        if object_labels & needed:
+            tags.append(tag)
+    return tags if tags else ["unknown"]
 
 
 def is_valid_checkpoint_entry(item: Any) -> bool:
@@ -310,6 +416,9 @@ def is_valid_checkpoint_entry(item: Any) -> bool:
         and isinstance(item["objects"], list)
         and isinstance(item["attributes"], list)
         and isinstance(item["detections"], list)
+        and isinstance(item["relationships"], list)
+        and isinstance(item["scene_context_tags"], list)
+        and isinstance(item["scene_context_primary"], str)
     )
 
 
@@ -445,6 +554,10 @@ def extract_metadata_with_yolo_world(
                     "box_xyxy": [round(float(v), 2) for v in box],
                 })
 
+        relationships = infer_relationships(detections)
+        scene_context_tags = infer_scene_context(objects)
+        scene_context_primary = scene_context_tags[0] if scene_context_tags else "unknown"
+
         results_by_id[str(image_id)] = {
             "objects": sorted(objects),
             "attributes": sorted(attributes),
@@ -452,6 +565,9 @@ def extract_metadata_with_yolo_world(
             "confidence_threshold": confidence_threshold,
             "queries_prompt": text_queries,
             "detections": detections,
+            "relationships": relationships,
+            "scene_context_tags": scene_context_tags,
+            "scene_context_primary": scene_context_primary,
             "image_path_used": str(image_path),
         }
 
@@ -520,16 +636,19 @@ def build_lookup_for_split(
             "captions": captions,
             "objects": objects_by_image[image_id],
             "attributes": attributes_by_image[image_id],
-            "scene_context": "yolo_world_extracted",
+            "relationships": det["relationships"],
+            "scene_context": det["scene_context_primary"],
             "annotation_info": {
                 "source": "YOLO-World (Open-Vocabulary Detections)",
                 "detector": det["detector"],
                 "confidence_threshold": det["confidence_threshold"],
                 "queries_prompt": det["queries_prompt"],
                 "attribute_split_method": "word-list heuristic (not a semantic guarantee)",
+                "relationship_method": "box-based spatial heuristics",
                 "image_split": meta["annotation_split"],
                 "caption_annotation_file": f"captions_{meta['annotation_split']}.json",
                 "detections": det["detections"],
+                "scene_context_tags": det["scene_context_tags"],
                 "image_path_used": det["image_path_used"],
             },
         }
@@ -545,6 +664,9 @@ def build_lookup_for_split(
         "images_with_objects": sum(bool(x["objects"]) for x in lookup.values()),
         "images_without_objects": sum(not x["objects"] for x in lookup.values()),
         "images_with_attributes": sum(bool(x["attributes"]) for x in lookup.values()),
+        "images_with_relationships": sum(bool(x["relationships"]) for x in lookup.values()),
+        "total_relationships": sum(len(x["relationships"]) for x in lookup.values()),
+        "images_with_known_scene_context": sum(x["scene_context"] != "unknown" for x in lookup.values()),
         "total_detections": sum(len(x["annotation_info"]["detections"]) for x in lookup.values()),
         "images_from_train2017": sum(x["annotation_info"]["image_split"] == "train2017" for x in lookup.values()),
         "images_from_val2017": sum(x["annotation_info"]["image_split"] == "val2017" for x in lookup.values()),

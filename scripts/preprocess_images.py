@@ -18,6 +18,34 @@ IMAGE_EXTENSIONS = {
 }
 
 
+def load_allowed_filenames(ids_file: Path) -> set[str]:
+    """Load numeric image IDs and map to COCO filenames (12-digit .jpg)."""
+    with ids_file.open("r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    if not isinstance(data, list):
+        raise ValueError(
+            f"IDs file must contain a JSON list: {ids_file}"
+        )
+
+    ids = []
+    for item in data:
+        value = item.get("id") if isinstance(item, dict) else item
+        try:
+            ids.append(int(value))
+        except (TypeError, ValueError) as error:
+            raise ValueError(
+                f"Invalid image ID in {ids_file}: {value!r}"
+            ) from error
+
+    if len(ids) != len(set(ids)):
+        raise ValueError(
+            f"Duplicate IDs found in: {ids_file}"
+        )
+
+    return {f"{image_id:012d}.jpg" for image_id in ids}
+
+
 def get_exif_orientation(image: Image.Image) -> int:
     """
     Return the EXIF orientation value.
@@ -100,6 +128,7 @@ def preprocess_dataset(
     output_dir: Path,
     report_path: Path,
     target_size: tuple[int, int],
+    ids_file: Path,
 ) -> dict:
     """
     Process every supported image in the input directory.
@@ -127,6 +156,18 @@ def preprocess_dataset(
         and output_dir.resolve() not in path.resolve().parents
     )
 
+    if not ids_file.is_file():
+        raise FileNotFoundError(
+            f"IDs file does not exist: {ids_file}"
+        )
+
+    allowed_filenames = load_allowed_filenames(ids_file)
+    images_before_filter = len(image_paths)
+    image_paths = [
+        path for path in image_paths
+        if path.name in allowed_filenames
+    ]
+
     if not image_paths:
         raise ValueError(
             f"No supported images found in: {input_dir}"
@@ -139,6 +180,9 @@ def preprocess_dataset(
         "target_size": list(target_size),
         "output_format": "JPEG",
         "output_mode": "RGB",
+        "ids_filter_file": str(ids_file),
+        "requested_ids_count": len(allowed_filenames),
+        "images_found_before_id_filter": images_before_filter,
         "total_images_found": len(image_paths),
         "processed_successfully": 0,
         "failed_images": 0,
@@ -149,6 +193,8 @@ def preprocess_dataset(
     }
 
     print(f"Images found: {len(image_paths)}")
+    print(f"IDs filter file: {ids_file}")
+    print(f"Requested IDs: {len(allowed_filenames)}")
     print(f"Input directory: {input_dir}")
     print(f"Output directory: {output_dir}")
     print(f"Target dimensions: {target_size[0]} x {target_size[1]}")
@@ -264,6 +310,13 @@ def main():
     )
 
     parser.add_argument(
+        "--ids-file",
+        type=Path,
+        default=Path("data/coco_rag_data/train_kb_ids.json"),
+        help="JSON file containing image IDs to preprocess.",
+    )
+
+    parser.add_argument(
         "--report",
         type=Path,
         default=Path(
@@ -294,6 +347,7 @@ def main():
         output_dir=args.output_dir,
         report_path=args.report,
         target_size=(args.size, args.size),
+        ids_file=args.ids_file,
     )
 
 

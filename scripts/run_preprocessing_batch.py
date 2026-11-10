@@ -15,6 +15,28 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "data" / "coco_rag_data" / "processed_images_bat
 
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 TARGET_SIZE = (224, 224)
+DEFAULT_IDS_FILE = PROJECT_ROOT / "data" / "coco_rag_data" / "train_kb_ids.json"
+
+
+def load_allowed_filenames(ids_file: Path) -> set[str]:
+    with ids_file.open("r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    if not isinstance(data, list):
+        raise ValueError(f"IDs file must contain a JSON list: {ids_file}")
+
+    ids: list[int] = []
+    for item in data:
+        value = item.get("id") if isinstance(item, dict) else item
+        try:
+            ids.append(int(value))
+        except (TypeError, ValueError) as error:
+            raise ValueError(f"Invalid image ID in {ids_file}: {value!r}") from error
+
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"Duplicate IDs found in {ids_file}")
+
+    return {f"{image_id:012d}.jpg" for image_id in ids}
 
 
 def parse_arguments():
@@ -51,6 +73,12 @@ def parse_arguments():
         "--resume",
         action="store_true",
         help="Skip output images that already pass validation.",
+    )
+    parser.add_argument(
+        "--ids-file",
+        type=Path,
+        default=DEFAULT_IDS_FILE,
+        help="JSON file with image IDs to preprocess (default: train_kb_ids.json).",
     )
 
     args = parser.parse_args()
@@ -165,6 +193,16 @@ def main():
         )
 
     images = discover_images(source_dir, output_dir)
+    images_before_filter = len(images)
+
+    ids_file = args.ids_file.resolve()
+    if not ids_file.is_file():
+        raise FileNotFoundError(
+            f"IDs file does not exist: {ids_file}"
+        )
+
+    allowed_filenames = load_allowed_filenames(ids_file)
+    images = [image for image in images if image.name in allowed_filenames]
 
     if args.limit is not None:
         images = images[:args.limit]
@@ -188,6 +226,9 @@ def main():
     print("=" * 55)
     print(f"Source directory : {source_dir}")
     print(f"Output directory : {output_dir}")
+    print(f"IDs file         : {ids_file}")
+    print(f"Images discovered: {images_before_filter}")
+    print(f"IDs requested    : {len(allowed_filenames)}")
     print(f"Images selected  : {total}")
     print(f"Batch size       : {args.batch_size}")
     print(f"Total batches    : {total_batches}")
@@ -255,6 +296,9 @@ def main():
         "started_at_utc": datetime.now(timezone.utc).isoformat(),
         "source_directory": str(source_dir),
         "output_directory": str(output_dir),
+        "ids_filter_file": str(ids_file),
+        "images_discovered_before_filter": images_before_filter,
+        "requested_ids_count": len(allowed_filenames),
         "total_images_selected": total,
         "batch_size": args.batch_size,
         "total_batches": total_batches,

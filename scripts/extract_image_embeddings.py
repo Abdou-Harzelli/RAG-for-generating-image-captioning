@@ -19,6 +19,28 @@ from transformers import CLIPModel, CLIPProcessor
 MODEL_NAME = "openai/clip-vit-base-patch32"
 DEFAULT_IMAGE_DIR = Path("data/coco_rag_data/processed_images_batch")
 DEFAULT_OUTPUT_DIR = Path("data/coco_rag_data/image_embeddings")
+DEFAULT_IDS_FILE = Path("data/coco_rag_data/train_kb_ids.json")
+
+
+def load_allowed_filenames(ids_file: Path) -> set[str]:
+    with ids_file.open("r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    if not isinstance(data, list):
+        raise ValueError(f"IDs file must contain a JSON list: {ids_file}")
+
+    ids = []
+    for item in data:
+        value = item.get("id") if isinstance(item, dict) else item
+        try:
+            ids.append(int(value))
+        except (TypeError, ValueError) as error:
+            raise ValueError(f"Invalid image ID in {ids_file}: {value!r}") from error
+
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"Duplicate IDs found in: {ids_file}")
+
+    return {f"{image_id:012d}.jpg" for image_id in ids}
 
 
 # --------------------------------------------------
@@ -42,13 +64,19 @@ def load_model(device):
 # 2. Find and sort images
 # --------------------------------------------------
 
-def get_image_paths(image_dir, limit=None):
+def get_image_paths(image_dir, limit=None, ids_file: Path | None = None):
     image_dir = Path(image_dir)
 
     if not image_dir.exists():
         raise FileNotFoundError(f"Image directory not found: {image_dir}")
 
-    image_paths = sorted(image_dir.glob("*.jpg"))
+    image_paths = sorted(image_dir.rglob("*.jpg"))
+
+    if ids_file is not None:
+        if not ids_file.is_file():
+            raise FileNotFoundError(f"IDs file not found: {ids_file}")
+        allowed_filenames = load_allowed_filenames(ids_file)
+        image_paths = [path for path in image_paths if path.name in allowed_filenames]
 
     if limit is not None:
         image_paths = image_paths[:limit]
@@ -158,7 +186,8 @@ def generate_image_embeddings(
     output_dir,
     batch_size=16,
     normalize=True,
-    limit=None
+    limit=None,
+    ids_file: Path | None = None,
 ):
     start_time = time.perf_counter()
     started_at = datetime.now(timezone.utc)
@@ -168,7 +197,7 @@ def generate_image_embeddings(
     )
 
     model, processor = load_model(device)
-    image_paths = get_image_paths(image_dir, limit)
+    image_paths = get_image_paths(image_dir, limit, ids_file)
 
     all_embeddings = []
     mapping = []
@@ -286,6 +315,7 @@ def generate_image_embeddings(
         "normalization_method": "L2" if normalize else None,
         "device": str(device),
         "input_directory": str(image_dir),
+        "ids_filter_file": str(ids_file) if ids_file else None,
         "output_shape": list(final_embeddings.shape),
         "created_at_utc": started_at.isoformat()
     }
@@ -295,6 +325,7 @@ def generate_image_embeddings(
         "total_images_found": len(image_paths),
         "images_processed": len(final_embeddings),
         "images_failed": len(errors),
+        "ids_filter_file": str(ids_file) if ids_file else None,
         "embedding_dimension": expected_dimension,
         "embedding_shape": list(final_embeddings.shape),
         "dtype": str(final_embeddings.dtype),
@@ -366,6 +397,12 @@ if __name__ == "__main__":
         help="Disable L2 normalization."
     )
 
+    parser.add_argument(
+        "--ids-file",
+        default=str(DEFAULT_IDS_FILE),
+        help="JSON file containing image IDs to embed (default: train_kb_ids.json)."
+    )
+
     args = parser.parse_args()
 
     if args.batch_size <= 0:
@@ -379,5 +416,6 @@ if __name__ == "__main__":
         output_dir=args.output_dir,
         batch_size=args.batch_size,
         normalize=not args.no_normalize,
-        limit=args.limit
+        limit=args.limit,
+        ids_file=Path(args.ids_file) if args.ids_file else None,
     )
