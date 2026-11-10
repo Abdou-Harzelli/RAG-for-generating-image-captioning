@@ -10,7 +10,7 @@ python scripts/download_coco_rag_subset.py \
   --limit 10
 ```
 
-## 5. Download the 10,000 training images
+## 5. Download the 10,100 training images
 
 After the test succeeds, run:
 
