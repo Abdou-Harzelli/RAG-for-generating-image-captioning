@@ -31,9 +31,9 @@ Note the trailing spaces in the raw captions. They are kept in `caption_raw` and
 
 **Linux**
 ```bash
-python3 src/preprocessing/caption_pipeline.py --self-test
-python3 src/preprocessing/caption_pipeline.py --name kb --forbid-ids data/coco_rag_data/test_ids.json
-python3 src/preprocessing/caption_pipeline.py --name test --input data/coco_rag_data/test_images_metadata.json
+python3 scripts/caption_pipeline.py --self-test
+python3 scripts/caption_pipeline.py --name kb --forbid-ids data/coco_rag_data/test_ids.json
+python3 scripts/caption_pipeline.py --name test --input data/coco_rag_data/test_lookup.json
 ```
 
 **Windows**
