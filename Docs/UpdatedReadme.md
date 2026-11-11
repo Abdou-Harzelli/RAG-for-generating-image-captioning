@@ -46,39 +46,8 @@ Train KB: 10000 | Val: 100 | Test: 1000
 ```
 
 
-## step 3 , check of captions in the 10k imgs et la generation de json special de 10k img
-*nom de fichier est: build_unified_lookup.py*
-the result must look like this :
-========== UNIFIED LOOKUP SUMMARY ==========
-Selected images:          10100
-Images with captions:     10100
-Images with object labels:    9914
-Total captions:           50029
-Output file:              data\coco_rag_data\unified_lookup.json
-=============================================
 
 
-*la commande pour executer le fichier est :*
-python .\scripts\build_unified_lookup.py
-
-
-
-
-## step 3 , check the 100 test img 
-
-ouptupt exemple: 
-*+fichier json nom:test_images_metadata.json*
---- Test Summary ---
-Selected images:            1000
-Images with captions:       1000
-Images with object labels:  99 (this doesnt exist in the output)
-Total captions:             500
-Images without captions:    0
-Images without object labels: 1 (this too doesnt )
-Test IDs file:              data\coco_rag_data\test_ids.json
-=============================================
-*la commande d'execution est:*
-python .\scripts\build_test_metadata.py
 
 
 
@@ -123,3 +92,198 @@ When YOLO-World scans an image against our text queries, it outputs probability 
 *1-val_lookup : for imgs of validations*
 *2-test_lookup: for testing img*
 *3-train_kb_lookup: for the whole imgs*
+
+
+*Run this command to execute : INTEGRATION TEST Metadata AND Captions with images*
+ python3 scripts/test_phase1_integration.py
+
+
+
+
+
+## Phase 1 Statistics and Anlysis : 
+``` bash 
+pip install nltk 
+```
+
+run every cell cuz they're connected espcaially variables 
+
+
+
+
+
+
+
+## Preprocessing results (step1 from STEP3):
+ex of output:
+
+Total images processed: 10,000
+
+Output format: JPEG (.jpg)
+
+Output dimensions: 224 × 224
+
+Color mode: RGB
+
+Successfully processed: 10,000
+
+Failed images: 0
+
+Validation results:
+
+JPEG files found: 10,000
+
+Invalid formats: 0
+
+Invalid dimensions: 0
+
+Non-RGB images: 0
+
+Unreadable images: 0
+
+
+*new strecture:*
+data/
+└── coco_rag_data/
+    └── processed_images/
+        ├── 000000073653.jpg
+        ├── ...
+        └── (10,000 processed images)
+
+## How to validate the images:
+
+Run the preprocessing script:
+
+python .\scripts\preprocess_images.py        
+
+
+
+
+### Image Batch Processing & Validation (Member 4)
+
+Implemented a batch-processing pipeline to preprocess 10,000 COCO images efficiently in batches of 100.
+
+**Features:**
+- Batch processing with progress tracking.
+- Image resizing to 224 × 224 pixels.
+- Conversion to RGB and JPEG format.
+- Error handling and JSON processing reports.
+- Image integrity and output validation.
+
+**Results:**
+- Images processed: 10,000
+- Batch size: 100 (100 batches)
+- Processing time: 206.83 seconds
+- Failed images: 0
+- Corrupted images: 0
+- Invalid dimensions: 0
+- Non-RGB images: 0
+
+**Validation status:** `SUCCESS`
+
+**Scripts:**
+- `scripts/run_preprocessing_batch.py` — Batch preprocessing.
+- `scripts/diagnose_images.py` — Checks missing and corrupted images.
+- `scripts/validate_processed_images.py` — Validates format, dimensions, and RGB mode.
+
+**Reports:**
+- `data/coco_rag_data/batch_processing_report.json`
+- `data/coco_rag_data/processed_images_batch_diagnostic.json`
+
+
+
+
+
+
+
+
+
+
+
+## Caption preprocessing which is the same for batch processing 
+
+### Run it
+
+**Linux**
+```bash
+python3 scripts/caption_pipeline.py --self-test
+python3 scripts/caption_pipeline.py --name kb --forbid-ids data/coco_rag_data/test_ids.json
+python3 scripts/caption_pipeline.py --name test --input data/coco_rag_data/test_lookup.json
+```
+
+**Windows**
+```powershell
+python src\preprocessing\caption_pipeline.py --self-test
+python src\preprocessing\caption_pipeline.py --name kb --forbid-ids data\coco_rag_data\test_ids.json
+python src\preprocessing\caption_pipeline.py --name test --input data\coco_rag_data\test_images_metadata.json
+```
+
+
+
+
+**Member 1 — Image Embedding Extraction: COMPLETED**
+
+I successfully extracted CLIP image embeddings for all 10,000 preprocessed COCO images.
+
+**Configuration:**
+- Model: `openai/clip-vit-base-patch32`
+- Framework: PyTorch + Hugging Face Transformers
+- Device: CPU
+- Batch size: 16
+- Embedding dimension: 512
+- Data type: float32
+- L2 normalization: enabled
+
+**Results:**
+- Images processed: 10,000
+- Failed images: 0
+- Embedding matrix: `(10000, 512)`
+- Processing time: 1,377.62 seconds
+- Status: SUCCESS
+
+*to run the script*
+`python .\scripts\extract_image_embeddings.py--batch-size16`                                                         
+
+**Generated deliverables:**
+- `image_embeddings.npy`
+- `image_embeddings_mapping.json`
+- `image_embeddings_metadata.json`
+- `embedding_report.json`
+
+The image embeddings are ready for the FAISS indexing stage. Please confirm the expected similarity metric and normalization convention before integration.
+
+**Member 2 — Text Embedding Extraction: COMPLETED**
+
+Successfully extracted normalized CLIP text embeddings for all 50,000 reference captions in `unified_lookup.json`.
+
+**Configuration:**
+- Model: `openai/clip-vit-base-patch32`
+- Framework: PyTorch + Hugging Face Transformers
+- Device: CPU
+- Batch size: 64
+- Embedding dimension: 512
+- Data type: float32
+- L2 normalization: enabled (FAISS IndexFlatIP ready)
+
+**Results:**
+- Captions processed: 50,000
+- Embedding matrix: `(50000, 512)`
+- Status: SUCCESS
+
+*To run the script:*
+`python .\scripts\extract_text_embeddings.py`
+
+**Generated deliverables:**
+- `data/coco_rag_data/text_embeddings.npy`
+- `data/coco_rag_data/text_embeddings_mapping.json`
+- `data/coco_rag_data/text_embedding_report.json`
+
+
+
+# FAISS Index (Step 4, task 3)
+
+
+```bash
+python3 scripts/build_faiss_index.py --name text
+python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings/image_embeddings_mapping.json
+```
