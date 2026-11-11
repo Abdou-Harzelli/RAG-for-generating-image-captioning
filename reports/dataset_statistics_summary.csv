@@ -1,0 +1,8 @@
+Metric,Value
+Total Knowledge Base Images,10000
+Total Reference Captions,50029
+Total Detected Object Entries,20419
+Average Words per Caption,10.46
+Unique Vocabulary Size,"13,658"
+Total Object Categories,34
+Average Objects per Image,2.04

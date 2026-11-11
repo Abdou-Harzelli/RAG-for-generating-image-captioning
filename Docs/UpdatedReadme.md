@@ -314,7 +314,46 @@ It checks:
 
 It writes:
 
-- [phase8_quality_control_report.json](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
-
+- [phase8_quality_control_report.json]
 Run command  
-python [phase8_quality_control.py](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
+python [phase8_quality_control.py]
+
+
+
+
+
+
+
+
+
+1. Required files exist
+    
+    - Makes sure training, validation, test IDs, lookup files, embeddings, mapping JSON, and FAISS index all exist.
+2. Split anti-leakage
+    
+    - Ensures the same image IDs do not appear across train/val/test sets.
+3. Lookup ID coverage
+    
+    - Confirms every image ID in the split appears in its corresponding lookup table.
+4. Caption count policy
+    
+    - Checks each training image has exactly 5 captions, as expected.
+5. Embedding matrix integrity
+    
+    - Validates shape, dtype, finite values, and that the embedding count matches the mapping length.
+6. L2 normalization
+    
+    - Verifies text embeddings are normalized to unit length, which is important for FAISS similarity search.
+7. Text mapping linkage
+    
+    - Confirms each mapping row points to a valid image, has no duplicate caption IDs/indices, and matches the expected number of caption rows.
+8. Missing embedding rows
+    
+    - Checks there are no missing rows between the lookup caption count and the embedding mapping.
+9. FAISS index size match
+    
+    - Ensures the FAISS index has the same number of vectors and dimension as the embeddings.
+10. FAISS self-retrieval smoke test
+    
+
+- Queries a sample of vectors against the index and verifies they retrieve themselves with high accuracy.
