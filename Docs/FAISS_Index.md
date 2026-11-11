@@ -26,7 +26,7 @@ Run these commands from the project root folder.
 Linux / macOS:
 ```bash
 python3 scripts/build_faiss_index.py --name text
-python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings_mapping.json
+python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings/image_embeddings_mapping.json
 ```
 
 Windows:
