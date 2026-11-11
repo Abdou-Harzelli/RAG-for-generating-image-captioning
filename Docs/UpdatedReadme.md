@@ -287,3 +287,34 @@ Successfully extracted normalized CLIP text embeddings for all 50,000 reference 
 python3 scripts/build_faiss_index.py --name text
 python3 scripts/build_faiss_index.py --name image --embeddings data/coco_rag_data/image_embeddings/image_embeddings.npy --mapping data/coco_rag_data/image_embeddings/image_embeddings_mapping.json
 ```
+
+
+
+
+
+## phase 8 quality control final Q & A: 
+
+What I added for Phase 8 (quality control code)  
+I created a full Phase 8 checker script:
+
+- [phase8_quality_control.py](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
+
+It checks:
+
+1. Required artifacts exist.
+2. Split anti-leakage.
+3. Lookup ID coverage.
+4. Caption count policy.
+5. Embedding integrity (shape, dtype, NaN/Inf).
+6. L2 normalization.
+7. Vector-to-metadata linkage.
+8. Missing embedding rows.
+9. FAISS index size consistency.
+10. FAISS self-retrieval smoke test.
+
+It writes:
+
+- [phase8_quality_control_report.json](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
+
+Run command  
+python [phase8_quality_control.py](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
