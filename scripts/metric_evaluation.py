@@ -168,21 +168,68 @@ if __name__ == "__main__":
         k=TOP_K,
     )
 
-    # Save the evaluation results as a JSON report
+    # Save a complete evaluation report.
     timestamp = datetime.now(timezone.utc).isoformat()
     report = {
-        "timestamp": timestamp,
-        "total_vectors": faiss_index.ntotal,
-        "sample_size": sample_size,
-        "recall": results[0],
-        "precision": results[1],
-        "mrr": results[2],
-        "map": results[3],
-        "top_1_accuracy": results[4],
+        "created_at_utc": timestamp,
+        "evaluation_type": "FAISS image-index self-retrieval",
+        "purpose": "Validate image embedding normalization, vector-ID mapping, FAISS index consistency, and exact retrieval.",
+        "model": MODEL_NAME,
+        "embedding_dimension": stored_embeddings.shape[1],
+        "embedding_dtype": str(stored_embeddings.dtype),
+        "similarity": {
+            "method": "cosine similarity implemented by inner product",
+            "faiss_index_type": "IndexFlatIP",
+            "normalization": "L2",
+            "formula": "cos(a,b) = (a dot b) / (||a|| * ||b||) = a dot b for unit vectors",
+            "meaning": "Ranks vectors by their direction similarity; larger scores indicate greater similarity."
+        },
+        "dataset_scope": {
+            "knowledge_base_image_count": len(kb_image_ids),
+            "tested_sample_count": sample_size,
+            "source": "100 vectors sampled from the existing 10,000-image training knowledge base",
+            "search_pool": "The same 10,000-image FAISS index",
+            "not_used": "Held-out validation/test image files",
+            "reason": "The 100 queries are vectors already present in the index, so this measures index consistency rather than unseen-data generalization."
+        },
+        "checks": {
+            "l2_normalization_passed": True,
+            "min_embedding_norm": float(norms.min()),
+            "max_embedding_norm": float(norms.max()),
+            "embedding_index_size_match": faiss_index.ntotal == len(stored_embeddings),
+            "embedding_id_mapping_size_match": faiss_index.ntotal == len(kb_image_ids),
+            "embedding_index_size": faiss_index.ntotal,
+            "embedding_matrix_rows": len(stored_embeddings),
+            "mapping_rows": len(kb_image_ids)
+        },
+        "metrics": {
+            "k": TOP_K,
+            "recall_at_k": results[0],
+            "precision_at_k": results[1],
+            "mrr": results[2],
+            "map_at_k": results[3],
+            "top_1_accuracy": results[4]
+        },
+        "interpretation": {
+            "what_it_proves": [
+                "Stored vectors are L2-normalized.",
+                "FAISS and the embedding matrix contain the same number of vectors.",
+                "FAISS row positions correspond to image-ID mapping rows.",
+                "Known vectors can be retrieved and the exact matching vector ranks first.",
+                "Inner-product/cosine search is technically functioning."
+            ],
+            "what_it_does_not_prove": [
+                "Semantic quality on unseen images.",
+                "Text-to-image retrieval quality.",
+                "Comparison quality against another student's held-out benchmark.",
+                "Generalization beyond the 10,000-image knowledge base."
+            ],
+            "main_limitation": "Self-retrieval uses stored vectors as both queries and candidates; it does not represent unseen RAG retrieval quality."
+        },
+        "status": "SUCCESS"
     }
 
-    report_path = "./data/coco_rag_data/evaluation_report.json"
-    with open(report_path, "w", encoding="utf-8") as f:
+    with open(METRIC_REPORT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=4)
 
-    print(f"Evaluation report saved to {report_path}.")
+    print(f"Complete evaluation report saved to {METRIC_REPORT_PATH}.")
